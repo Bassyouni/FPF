@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.5.0)
+  - DLRadioButton (1.4.9)
   - JVFloatLabeledTextField (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - DLRadioButton (~> 1.4)
   - JVFloatLabeledTextField
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
   JVFloatLabeledTextField: 96c0c1b6739001801340d25b86aff990d67c4181
 
-PODFILE CHECKSUM: 8d745c73774fc46ad19abf7096bc82dc0c51f0fe
+PODFILE CHECKSUM: 51e8b9ed8775034575d4f10f0c4c3c373e5caedf
 
 COCOAPODS: 1.2.1

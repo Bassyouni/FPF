@@ -10,6 +10,8 @@
 		B8120D1B1F7DA07C00839C37 /* GameViewSB.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8120D191F7DA07C00839C37 /* GameViewSB.xib */; };
 		B8120D1C1F7DA07C00839C37 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1A1F7DA07C00839C37 /* GameView.swift */; };
 		B8120D1E1F7DA0AC00839C37 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */; };
+		B8120D201F7E990600839C37 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1F1F7E990600839C37 /* SignUpVC.swift */; };
+		B8120D261F7EDB7800839C37 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D251F7EDB7800839C37 /* ShadowView.swift */; };
 		B85F18A51F7D9AF4000263C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F18A41F7D9AF4000263C8 /* AppDelegate.swift */; };
 		B85F18AC1F7D9AF4000263C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85F18AB1F7D9AF4000263C8 /* Assets.xcassets */; };
 		B85F18AF1F7D9AF4000263C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85F18AD1F7D9AF4000263C8 /* LaunchScreen.storyboard */; };
@@ -29,6 +31,8 @@
 		B8120D191F7DA07C00839C37 /* GameViewSB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewSB.xib; sourceTree = "<group>"; };
 		B8120D1A1F7DA07C00839C37 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
+		B8120D1F1F7E990600839C37 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B8120D251F7EDB7800839C37 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B85F18A11F7D9AF4000263C8 /* FPF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FPF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85F18A41F7D9AF4000263C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B85F18AB1F7D9AF4000263C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			children = (
 				B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */,
 				B85F18C11F7D9BF7000263C8 /* LoginVC.swift */,
+				B8120D1F1F7E990600839C37 /* SignUpVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 		B85F18B81F7D9BBE000263C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8120D251F7EDB7800839C37 /* ShadowView.swift */,
 				B85F18BB1F7D9BEC000263C8 /* LoginView.swift */,
 				B85F18BC1F7D9BEC000263C8 /* RoundImage.swift */,
 				B85F18BD1F7D9BEC000263C8 /* LoginButton.swift */,
@@ -277,11 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85F18C01F7D9BEC000263C8 /* LoginButton.swift in Sources */,
+				B8120D201F7E990600839C37 /* SignUpVC.swift in Sources */,
 				B85F18BE1F7D9BEC000263C8 /* LoginView.swift in Sources */,
 				B85F18C21F7D9BF7000263C8 /* LoginVC.swift in Sources */,
 				B85F18BF1F7D9BEC000263C8 /* RoundImage.swift in Sources */,
 				B85F18A51F7D9AF4000263C8 /* AppDelegate.swift in Sources */,
 				B8120D1C1F7DA07C00839C37 /* GameView.swift in Sources */,
+				B8120D261F7EDB7800839C37 /* ShadowView.swift in Sources */,
 				B8120D1E1F7DA0AC00839C37 /* LandingVC.swift in Sources */,
 				B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */,
 			);

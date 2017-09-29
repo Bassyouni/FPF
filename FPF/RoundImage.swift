@@ -29,7 +29,7 @@ class RoundImage: UIImageView {
     
     func setupView()
     {
-        layer.borderWidth = 1
+        layer.borderWidth = 0
         layer.masksToBounds = false
         layer.borderColor = UIColor.black.cgColor
         layer.cornerRadius = frame.height/2

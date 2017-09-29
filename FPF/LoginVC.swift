@@ -21,6 +21,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mobileNumberBottomBorder: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mobileNumberTxtField.tag = 1
         passwordTxtField.tag = 2
         mobileNumberTxtField.delegate = self
@@ -32,7 +33,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if textField.tag == 1
         {
             UIView.animate(withDuration: 0.3, animations: {
-                self.mobileNumberBottomBorder.backgroundColor = UIColor(red: 11/255 , green: 69/255, blue: 156/255, alpha: 1)
+                self.mobileNumberBottomBorder.backgroundColor = customBlueColor
                 self.mobileBorderHeight.constant = 2
             })
             self.passwordBottomBorder.backgroundColor = UIColor.darkGray
@@ -40,7 +41,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         else
         {
             UIView.animate(withDuration: 0.3, animations: {
-               self.passwordBottomBorder.backgroundColor = UIColor(red: 11/255 , green: 69/255, blue: 156/255, alpha: 1)
+               self.passwordBottomBorder.backgroundColor = customBlueColor
                 self.passwordBorderHeight.constant = 2
             })
             
