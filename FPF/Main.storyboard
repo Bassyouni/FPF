@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -46,7 +47,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.043137254901960784" green="0.27060964703559875" blue="0.6125175952911377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TLc-FY-cAh" firstAttribute="centerX" secondItem="SA2-L8-JKQ" secondAttribute="centerX" id="0g2-4T-FPX"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="295" id="786-wF-Pd0"/>
@@ -165,7 +166,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="LoginBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xe4-hh-cWz"/>
-                                            <segue destination="drD-N0-8rH" kind="show" id="hk7-GB-v91"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zl-sp-Xjt">
@@ -243,6 +243,107 @@
             </objects>
             <point key="canvasLocation" x="84" y="130"/>
         </scene>
+        <!--FPF Courses-->
+        <scene sceneID="wvA-st-oHt">
+            <objects>
+                <tableViewController id="uBW-bf-xCO" customClass="FPFCourses" customModule="FPF" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="ish-46-wOS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainVCTableViewCell" rowHeight="200" id="g5m-TL-hPE" customClass="MainVCTableViewCell" customModule="FPF" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g5m-TL-hPE" id="sfC-S3-TAF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px4-ja-Pft">
+                                            <rect key="frame" x="18" y="18" width="339" height="173.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parkour_item in list" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-D1-c0q">
+                                                    <rect key="frame" x="120" y="0.0" width="219" height="174"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-80" translatesAutoresizingMaskIntoConstraints="NO" id="fDR-Sb-tGE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="173.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parkour &amp; FreeRunning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmZ-iw-S9M">
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="127"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the movement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hy-d4-Kmn">
+                                                            <rect key="frame" x="0.0" y="47" width="150" height="126.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.68329900503158569" green="0.79122728109359741" blue="0.81976050138473511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="dBS-D1-c0q" firstAttribute="leading" secondItem="px4-ja-Pft" secondAttribute="leading" constant="120" id="1EJ-ed-QLT"/>
+                                                <constraint firstItem="fDR-Sb-tGE" firstAttribute="leading" secondItem="px4-ja-Pft" secondAttribute="leading" id="5ib-VN-tyi"/>
+                                                <constraint firstAttribute="trailing" secondItem="dBS-D1-c0q" secondAttribute="trailing" id="Cr4-e5-Osv"/>
+                                                <constraint firstItem="dBS-D1-c0q" firstAttribute="leading" secondItem="fDR-Sb-tGE" secondAttribute="trailing" constant="-30" id="IDv-XC-ebr"/>
+                                                <constraint firstItem="dBS-D1-c0q" firstAttribute="top" secondItem="px4-ja-Pft" secondAttribute="top" id="UXb-CP-WT7"/>
+                                                <constraint firstItem="fDR-Sb-tGE" firstAttribute="top" secondItem="px4-ja-Pft" secondAttribute="top" id="jL3-SR-KVX"/>
+                                                <constraint firstAttribute="bottom" secondItem="fDR-Sb-tGE" secondAttribute="bottom" id="nI5-gd-Z6z"/>
+                                                <constraint firstAttribute="bottom" secondItem="dBS-D1-c0q" secondAttribute="bottom" id="o5w-E1-lxl"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="px4-ja-Pft" firstAttribute="top" secondItem="sfC-S3-TAF" secondAttribute="topMargin" constant="10" id="BzY-MA-HnL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="px4-ja-Pft" secondAttribute="trailing" constant="10" id="Jxn-5R-3VT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="px4-ja-Pft" secondAttribute="bottom" id="cXd-U9-hVa"/>
+                                        <constraint firstItem="px4-ja-Pft" firstAttribute="leading" secondItem="sfC-S3-TAF" secondAttribute="leadingMargin" constant="10" id="wYP-rf-UYi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameImageView" destination="dBS-D1-c0q" id="PTt-IX-gmY"/>
+                                    <outlet property="quoteLabel" destination="4Hy-d4-Kmn" id="crE-a4-kUG"/>
+                                    <outlet property="titleLabel" destination="qmZ-iw-S9M" id="hq5-uo-1ma"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uBW-bf-xCO" id="08i-g6-c2j"/>
+                            <outlet property="delegate" destination="uBW-bf-xCO" id="xmQ-ka-zbS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="FPF Courses" id="6Im-N2-Bu2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obW-A4-6P5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224.80000000000001" y="946.77661169415296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZzP-lR-JD2">
+            <objects>
+                <navigationController id="MtP-zn-9f4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MC2-rV-h3e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uBW-bf-xCO" kind="relationship" relationship="rootViewController" id="CtJ-yi-cyc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngI-gp-6NM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-727" y="947"/>
+        </scene>
         <!--Sign UpVC-->
         <scene sceneID="o9w-68-iah">
             <objects>
@@ -284,7 +385,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.043137254899999998" green="0.27060964700000001" blue="0.61251759530000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="Mig-ei-vBX" firstAttribute="centerY" secondItem="yGh-1X-LD6" secondAttribute="centerY" id="4hV-Y0-Kve"/>
                                                     <constraint firstItem="na3-wt-Q4y" firstAttribute="centerX" secondItem="yGh-1X-LD6" secondAttribute="centerX" id="AEl-U5-5Vm"/>
@@ -660,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyU-Yo-DPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="133"/>
+            <point key="canvasLocation" x="972" y="133"/>
         </scene>
         <!--About UsVC-->
         <scene sceneID="Pey-ME-V0a">
@@ -774,7 +875,7 @@
                                         <state key="normal" image="phone-call-button"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.041287608439999998" green="0.27060964700000001" blue="0.61251759530000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="egg-9F-zAr" firstAttribute="leading" secondItem="E29-d2-5tH" secondAttribute="trailing" constant="20" id="LQ4-9f-bcw"/>
                                     <constraint firstAttribute="trailing" secondItem="egg-9F-zAr" secondAttribute="trailing" constant="15" id="beq-dP-lw1"/>
@@ -810,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQU-ei-KlR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597.5999999999999" y="129.98500749625188"/>
+            <point key="canvasLocation" x="1751" y="130"/>
         </scene>
         <!--LandingVC-->
         <scene sceneID="jVD-iZ-HTG">
@@ -898,6 +999,7 @@
         <image name="label-right-arrow-outline" width="64" height="64"/>
         <image name="logo" width="373" height="276"/>
         <image name="man" width="128" height="128"/>
+        <image name="parkour_item in list" width="1424" height="1080"/>
         <image name="phone-call-button" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
