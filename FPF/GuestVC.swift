@@ -15,6 +15,7 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var conatinorView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,22 +25,34 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         scrollView.contentSize = CGSize(width:(self.view.bounds.size.width * 2) , height: 1)
+
+        
+        scrollView.isPagingEnabled = true
+        scrollView.isScrollEnabled = true
         
         
     }
+    
+
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.addChildViewController(fpfCoursesVC!)
         self.scrollView.addSubview((fpfCoursesVC?.view)!)
         fpfCoursesVC?.willMove(toParentViewController: self)
+
+        fpfCoursesVC.view.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+        fpfCoursesVC.view.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        self.addChildViewController(aboutUsVC!)
-        self.scrollView.addSubview((aboutUsVC?.view)!)
-        aboutUsVC?.willMove(toParentViewController: self)
-        
-        aboutUsVC?.view.frame.origin = CGPoint(x: 0, y: 0)
-        fpfCoursesVC?.view.frame.origin = CGPoint(x: self.view.bounds.size.width, y: 0)
-        aboutUsVC.view.autoresizingMask = [.flexibleHeight , .flexibleWidth]
+        fpfCoursesVC.view.translatesAutoresizingMaskIntoConstraints = false
+       fpfCoursesVC.view.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: self.view.bounds.size.width).isActive = true
+        fpfCoursesVC.view.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: 0).isActive = true
+        fpfCoursesVC.view.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
+        fpfCoursesVC.view.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
+
+        fpfCoursesVC.view.frame.origin = CGPoint(x: self.view.bounds.size.width, y: 0)
+
+
 
         
     }
