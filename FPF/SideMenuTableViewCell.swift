@@ -11,18 +11,13 @@ import UIKit
 class SideMenuTableViewCell: UITableViewCell {
 
     @IBOutlet var lblMenu : UILabel!
-//    @IBOutlet var imgMenu : UIImageView!
+    @IBOutlet var imgMenu : UIImageView!
     @IBOutlet var viewMenu : UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(title: String)
+    {
+        self.lblMenu.text = title
+        self.imgMenu.image = UIImage(named: title)
     }
 
 }

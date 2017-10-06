@@ -47,22 +47,30 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! SideMenuTableViewCell
-        cell.lblMenu.text = self.arrMenuTxt[indexPath.row]
-//        cell.imgMenu.image = UIImage(named: self.arrMenuImg[indexPath.row])
-        if (self.indexSelected == indexPath.row)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as? SideMenuTableViewCell
         {
-            UIView.animate(withDuration: 0.5, animations: {
-                cell.viewMenu.backgroundColor = customBlueColor
-            })
+            cell.configureCell(title: arrMenuTxt[indexPath.row])
+            
+            if (self.indexSelected == indexPath.row)
+            {
+                UIView.animate(withDuration: 0.5, animations: {
+                    cell.viewMenu.backgroundColor = customBlueColor
+                })
+            }
+            else
+            {
+                UIView.animate(withDuration: 0.5, animations: {
+                    cell.viewMenu.backgroundColor = UIColor.white
+                })
+            }
+            return cell
         }
         else
         {
-            UIView.animate(withDuration: 0.5, animations: {
-                cell.viewMenu.backgroundColor = UIColor.white
-            })
+            return UITableViewCell()
         }
-        return cell
+        
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

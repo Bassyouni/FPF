@@ -146,12 +146,12 @@
 		B85F18A31F7D9AF4000263C8 /* FPF */ = {
 			isa = PBXGroup;
 			children = (
-				B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */,
 				B8120D291F7FEDFF00839C37 /* BoilerPlate */,
 				B85F18B91F7D9BC9000263C8 /* Model */,
 				B85F18B81F7D9BBE000263C8 /* View */,
 				B85F18B71F7D9BB8000263C8 /* Controller */,
 				B85F18B61F7D9BA8000263C8 /* Resources */,
+				B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */,
 			);
 			path = FPF;
 			sourceTree = "<group>";
