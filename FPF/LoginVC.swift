@@ -9,6 +9,7 @@
 import UIKit
 import JVFloatLabeledTextField
 
+
 class LoginVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var logoImageView: UIImageView!
@@ -64,6 +65,17 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func LoginBtnPressed(_ sender: Any) {
+        
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
+        let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")
+    
+        let containerVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav , leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
+        
+        delegate?.window?.rootViewController = containerVC
+        
+        
+        
     }
     
 

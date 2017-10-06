@@ -1,32 +1,19 @@
 //
-//  FPFCourses.swift
+//  MainVC.swift
 //  FPF
 //
-//  Created by Bassyouni on 10/2/17.
+//  Created by Bassyouni on 10/6/17.
 //  Copyright © 2017 Bassyouni. All rights reserved.
 //
 
 import UIKit
 
-class FPFCourses: UITableViewController {
-    
-    let parkour = ["title":"Parkour & FreeRunning","quote":"Be the movement" , "image":"parkour_item in list"]
-    
-    let mma = ["title":"MMA","quote":"Mixed Martial Art" , "image":"mma_item in list"]
-    
-    let streetWorkout = ["title":"Street Workout","quote":"Push beyond your limits" , "image":"street_workout_item in list"]
-    
-    var gamesArray = [Dictionary<String,String>]()
+class MainVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        gamesArray = [parkour , mma , streetWorkout]
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.rightBarButtonItem = self.editButtonItem
+
     }
 
 
@@ -34,30 +21,23 @@ class FPFCourses: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCTableViewCell", for: indexPath) as? MainVCTableViewCell
-        {
-            let dict = gamesArray[indexPath.row]
-            cell.configureCell(title: dict["title"]!, quote: dict["quote"]!, image: dict["image"]!)
-            
-            return cell
-        }
-        else
-        {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
+        // Configure the cell...
+
+        return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -103,5 +83,8 @@ class FPFCourses: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func menuBtnPressed(_ sender: Any) {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion({})
+    }
 
 }
