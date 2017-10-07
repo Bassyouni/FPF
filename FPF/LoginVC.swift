@@ -8,6 +8,7 @@
 
 import UIKit
 import JVFloatLabeledTextField
+import Alamofire
 
 
 class LoginVC: UIViewController, UITextFieldDelegate {
@@ -66,15 +67,32 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     @IBAction func LoginBtnPressed(_ sender: Any) {
         
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
-        let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")
-    
-        let containerVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav , leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
+//        let delegate = UIApplication.shared.delegate as? AppDelegate
+//        let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
+//        let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")
+//    
+//        let containerVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav , leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
+//        
+//        delegate?.window?.rootViewController = containerVC
         
-        delegate?.window?.rootViewController = containerVC
         
+        // this is sign up
+        let parameters = ["FName": "Omar", "SName": "Ashraf" , "Mobile": "01116895595" , "PMobile": "01000000000" , "Password": "12345678" , "Date": "13/2/1996" , "Gender": "Male" , "Image": "www.whatsappstatus77.in/wp-content/uploads/2015/07/awesome-boys-profile-photos-pics-for-facebook-wall-whatsapp-dp.jpg"]
         
+        let url = URL(string: "http://fpftest.000webhostapp.com/FPF/Signup.php")
+        
+        Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
+            if let dic =  response.result.value as? Dictionary<String ,AnyObject>
+            {
+                print("xxxxx: \(String(describing: dic["response"]))")
+                print(dic)
+            }
+            else
+            {
+                print(response.result, response.result.error.debugDescription)
+            }
+        }
+
         
     }
     

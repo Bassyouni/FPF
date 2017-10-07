@@ -36,5 +36,10 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need your Awesome profile picture to save it to this account.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
