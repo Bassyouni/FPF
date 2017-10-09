@@ -9,6 +9,7 @@
 import UIKit
 import DLRadioButton
 import JVFloatLabeledTextField
+import Alamofire
 
 class SignUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -85,9 +86,27 @@ class SignUpVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerDe
     }
     
     @IBAction func DoneBtnPressed(_ sender: Any) {
+        // this is sign up
+        let parameters = ["FName": "Omar", "SName": "Ashraf" , "Mobile": "01116895595" , "PMobile": "01000000000" , "Password": "12345678" , "Date": "13/2/1996" , "Gender": "Male" , "Image": "www.whatsappstatus77.in/wp-content/uploads/2015/07/awesome-boys-profile-photos-pics-for-facebook-wall-whatsapp-dp.jpg"]
+        
+        let url = URL(string: "http://fpftest.000webhostapp.com/FPF/Signup.php")
+        
+        Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
+            if let dic =  response.result.value as? Dictionary<String ,AnyObject>
+            {
+                print("xxxxx: \(String(describing: dic["response"]))")
+                print(dic)
+            }
+            else
+            {
+                print(response.result, response.result.error.debugDescription)
+            }
+        }
+
     }
     
     @IBAction func returnBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK: - textField delegte methods

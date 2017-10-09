@@ -79,8 +79,7 @@
                                                             <color key="titleColor" red="0.86666666670000003" green="0.17254901959999999" blue="0.0" alpha="0.87418519939999995" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="signUpBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="q1l-hc-SjQ"/>
-                                                            <segue destination="o3N-Xw-Kjm" kind="showDetail" id="NvC-kv-sIL"/>
+                                                            <segue destination="o3N-Xw-Kjm" kind="show" id="ymk-93-NWp"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -92,7 +91,7 @@
                                                     <color key="titleColor" red="0.041287608439999998" green="0.27060964700000001" blue="0.73603466705925935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="continueAsGuestBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FrU-JA-UKA"/>
+                                                    <segue destination="uzr-vg-zJ4" kind="showDetail" id="awJ-I5-edT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -230,6 +229,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginBtn" destination="bsj-im-0mZ" id="re8-X4-09E"/>
                         <outlet property="logoImageView" destination="TLc-FY-cAh" id="Nxe-HL-XdI"/>
                         <outlet property="mobileBorderHeight" destination="85k-F1-2z4" id="yQD-Rj-MH0"/>
                         <outlet property="mobileNumberBottomBorder" destination="7zl-sp-Xjt" id="zQg-cI-FbE"/>
@@ -785,7 +785,6 @@
                                         </state>
                                         <connections>
                                             <action selector="returnBtnPressed:" destination="o3N-Xw-Kjm" eventType="touchUpInside" id="o9z-2n-WAS"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="SxT-Ib-BQU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1066,7 +1065,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giB-u9-hO5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727" y="133"/>
+            <point key="canvasLocation" x="-788" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QJd-hX-KGR">
@@ -1338,7 +1337,6 @@
         <image name="phone-call-button" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0yI-py-HBL"/>
         <segue reference="f8W-Rc-kRF"/>
     </inferredMetricsTieBreakers>
 </document>

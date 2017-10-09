@@ -11,8 +11,10 @@ import JVFloatLabeledTextField
 import Alamofire
 
 
-class LoginVC: UIViewController, UITextFieldDelegate {
+class LoginVC: ParentViewController {
 
+    //MARK: - iboutlets
+    @IBOutlet weak var loginBtn: LoginButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var mobileNumberTxtField: JVFloatLabeledTextField!
     @IBOutlet weak var passwordTxtField: JVFloatLabeledTextField!
@@ -21,6 +23,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mobileBorderHeight: NSLayoutConstraint!
     @IBOutlet weak var passwordBottomBorder: UIView!
     @IBOutlet weak var mobileNumberBottomBorder: UIView!
+    
+    //MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +33,156 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         mobileNumberTxtField.delegate = self
         passwordTxtField.delegate = self
     }
+
+    //MARK: - ibactions
+    @IBAction func LoginBtnPressed(_ sender: Any) {
+        
+        mobileNumberBottomBorder.backgroundColor = UIColor.darkGray
+        passwordBottomBorder.backgroundColor = UIColor.darkGray
+        mobileBorderHeight.constant = 1
+        passwordBorderHeight.constant = 1
+        
+        if mobileNumberTxtField.text == "" || passwordTxtField.text == ""
+        {
+            let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Please Fill Both Mobile and Password", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            mobileNumberBottomBorder.backgroundColor = UIColor.red
+            passwordBottomBorder.backgroundColor = UIColor.red
+            mobileBorderHeight.constant = 2
+            passwordBorderHeight.constant = 2
+            
+        }
+        else if !validateMobile(value: mobileNumberTxtField.text!)
+        {
+            let alert = UIAlertController(title: NSLocalizedString("Mobile Format Error", comment: ""), message: NSLocalizedString("Mobile Number should be 11 digits", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            mobileNumberBottomBorder.backgroundColor = UIColor.red
+            mobileBorderHeight.constant = 2
+        }
+        else if !validatePassword(value: passwordTxtField.text!)
+        {
+            let alert = UIAlertController(title: NSLocalizedString("Password Format Error", comment: ""), message: NSLocalizedString("Password should be at least 8 characters", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            passwordBottomBorder.backgroundColor = UIColor.red
+            passwordBorderHeight.constant = 2
+        }
+        else
+        {
+            self.showLoading()
+            loginBtn.isEnabled = false
+            let parameters = ["Mobile" : mobileNumberTxtField.text! , "Password" : passwordTxtField.text!]
+            
+            let url = URL(string: signInUrl)
+            
+            Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
+                if let dic =  response.result.value as? Dictionary<String ,AnyObject>
+                {
+                    let  response = dic["response"] as! String
+                    
+                    if  response == "Error"
+                    {
+                        let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Either Mobile or Password is incorrect", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else
+                    {
+                        if let age = dic["Age"] as? Int
+                        {
+                            userAge = age
+                        }
+                        if let id = dic["ID"] as? String
+                        {
+                            userID = id
+                        }
+                        if let fName = dic["FName"] as? String
+                        {
+                            userFname = fName
+                        }
+                        if let sName = dic["SName"] as? String
+                        {
+                            userSName = sName
+                        }
+                        if let image = dic["Image"] as? String
+                        {
+                            userImage = image
+                        }
+                        if let gender = dic["gender"] as? String
+                        {
+                            userGender = gender
+                        }
+                        if let pMobile = dic["P_Mobile"] as? String
+                        {
+                            userPMobile = pMobile
+                        }
+                        
+                        self.goToMainVC()
+                    }
+                }
+                else
+                {
+                    print(response.result, response.result.error.debugDescription)
+                }
+            
+                self.loginBtn.isEnabled = true
+                self.hideLoading()
+            }
+        }
+        
+        
+        
+        
+    }
+
+    //MARK: - segue to mainVC
+    private func goToMainVC()
+    {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
+        let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")
+        
+        let containerVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav , leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
+
+        delegate?.window?.rootViewController = containerVC
+    }
     
+    //MARK: - validation
+    private func validateMobile(value: String) -> Bool {
+        if value.characters.count < 11
+        {
+            return false
+        }
+        else if value.characters.count > 11
+        {
+            return false
+        }
+        
+        return true
+    }
+    
+    private func validatePassword(value: String) -> Bool {
+        if value.characters.count >= 8
+        {
+            return true
+        }
+        return false
+        
+    }
+    
+    //MARK: - keyboardDissmissOnTouch
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+}
+
+//MARK: - textField delegte methods
+extension LoginVC: UITextFieldDelegate
+{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("Hiiiiiii: did begin")
         if textField.tag == 1
         {
             UIView.animate(withDuration: 0.3, animations: {
@@ -43,7 +194,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         else
         {
             UIView.animate(withDuration: 0.3, animations: {
-               self.passwordBottomBorder.backgroundColor = customBlueColor
+                self.passwordBottomBorder.backgroundColor = customBlueColor
                 self.passwordBorderHeight.constant = 2
             })
             
@@ -64,44 +215,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             self.passwordBorderHeight.constant = 1
         }
     }
-
-    @IBAction func LoginBtnPressed(_ sender: Any) {
-        
-//        let delegate = UIApplication.shared.delegate as? AppDelegate
-//        let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
-//        let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")
-//    
-//        let containerVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav , leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
-//        
-//        delegate?.window?.rootViewController = containerVC
-        
-        
-        // this is sign up
-        let parameters = ["FName": "Omar", "SName": "Ashraf" , "Mobile": "01116895595" , "PMobile": "01000000000" , "Password": "12345678" , "Date": "13/2/1996" , "Gender": "Male" , "Image": "www.whatsappstatus77.in/wp-content/uploads/2015/07/awesome-boys-profile-photos-pics-for-facebook-wall-whatsapp-dp.jpg"]
-        
-        let url = URL(string: "http://fpftest.000webhostapp.com/FPF/Signup.php")
-        
-        Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
-            if let dic =  response.result.value as? Dictionary<String ,AnyObject>
-            {
-                print("xxxxx: \(String(describing: dic["response"]))")
-                print(dic)
-            }
-            else
-            {
-                print(response.result, response.result.error.debugDescription)
-            }
-        }
-
-        
-    }
     
-
-    @IBAction func signUpBtnPressed(_ sender: Any) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
-    
-    @IBAction func continueAsGuestBtnPressed(_ sender: Any) {
-    }
-    
 }
 
