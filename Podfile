@@ -8,5 +8,7 @@ target 'FPF' do
   # Pods for FPF
     pod 'JVFloatLabeledTextField'
     pod 'Alamofire', '~> 4.0'
-    pod 'DLRadioButton', '~> 1.4'
+    pod ‘DLRadioButton', '~> 1.4'
+    pod ‘Firebase/Core’
+    pod ‘Firebase/Storage’
 end

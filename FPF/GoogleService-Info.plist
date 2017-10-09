@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1093667509579-87rsi1tk7r030674odtbkd98bpmscfpm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1093667509579-87rsi1tk7r030674odtbkd98bpmscfpm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAcSG5FigXD3J5P7Qb5o6cBqagiOFMsva4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1093667509579</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.FPF</string>
+	<key>PROJECT_ID</key>
+	<string>summer-pattern-152418</string>
+	<key>STORAGE_BUCKET</key>
+	<string>summer-pattern-152418.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1093667509579:ios:1ef96c2f1c106709</string>
+	<key>DATABASE_URL</key>
+	<string>https://summer-pattern-152418.firebaseio.com</string>
+</dict>
+</plist>
