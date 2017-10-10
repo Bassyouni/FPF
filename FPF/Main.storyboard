@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="o3N-Xw-Kjm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -827,17 +827,19 @@
                         <outlet property="mobileNumberBottomBorderView" destination="dnT-gz-eCz" id="NMm-RP-HW0"/>
                         <outlet property="mobileNumberTxtField" destination="kfF-nf-8el" id="TWM-Fp-Tty"/>
                         <outlet property="mobileNumberViewHeight" destination="RX4-fd-D6g" id="ysx-QO-cZb"/>
+                        <outlet property="navbarView" destination="mEd-IP-j52" id="fu5-lg-Tup"/>
                         <outlet property="parentsMobileNumberBottomBorderView" destination="nfn-dq-Blt" id="jZb-sD-vMf"/>
                         <outlet property="parentsMobileNumberTxtField" destination="Bz8-Q9-SFL" id="l3t-N1-GkG"/>
                         <outlet property="parentsMobileNumberViewHeight" destination="dOT-Uf-qoa" id="Iik-Qe-byl"/>
                         <outlet property="passwordBottomBorderView" destination="gdf-cq-JKB" id="cip-PT-vQn"/>
                         <outlet property="passwordTxtField" destination="nmv-Cl-ZOB" id="9zr-cK-cW5"/>
                         <outlet property="passwordViewHeight" destination="4gz-xK-Ync" id="0rO-Ge-VAD"/>
+                        <outlet property="scrollView" destination="lLR-mO-uql" id="xkt-je-uy9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyU-Yo-DPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="133"/>
+            <point key="canvasLocation" x="972" y="132.68365817091455"/>
         </scene>
         <!--About UsVC-->
         <scene sceneID="Pey-ME-V0a">
@@ -1133,14 +1135,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NL2-ch-ciz">
-                                                    <rect key="frame" x="20" y="18.5" width="0.0" height="30"/>
+                                                    <rect key="frame" x="20" y="19" width="0.0" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="eY9-zk-qt7"/>
                                                         <constraint firstAttribute="width" id="gM2-HK-vDf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOv-gC-sUA">
-                                                    <rect key="frame" x="65" y="23" width="302" height="21"/>
+                                                    <rect key="frame" x="65" y="23" width="341" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.41173088550567627" green="0.41178369522094727" blue="0.4117128849029541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1153,7 +1155,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uC9-Nc-KPe">
-                                                    <rect key="frame" x="20" y="18.5" width="30" height="30"/>
+                                                    <rect key="frame" x="20" y="19" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="iij-L8-2JC"/>
                                                         <constraint firstAttribute="height" constant="30" id="xjx-7g-hrS"/>
@@ -1231,22 +1233,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vp6-2g-t98">
-                                            <rect key="frame" x="18" y="18" width="339" height="174"/>
+                                            <rect key="frame" x="18" y="18" width="339" height="173"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parkour_item in list" translatesAutoresizingMaskIntoConstraints="NO" id="TyZ-LX-ZUM">
-                                                    <rect key="frame" x="120" y="0.0" width="219" height="174"/>
+                                                    <rect key="frame" x="120" y="0.0" width="219" height="173"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-80" translatesAutoresizingMaskIntoConstraints="NO" id="mtR-BP-uIC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="174"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="173"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parkour &amp; FreeRunning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyE-VX-RVt">
-                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="127"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="126.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the movement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgO-hN-NEa">
-                                                            <rect key="frame" x="0.0" y="47" width="150" height="127"/>
+                                                            <rect key="frame" x="0.0" y="46.5" width="150" height="126.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>

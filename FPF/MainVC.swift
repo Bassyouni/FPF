@@ -12,15 +12,6 @@ class MainVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userMobile)
-        print(userPMobile)
-        print(userFname)
-        print(userSName)
-        print(userGender)
-        print(userImage)
-        print(userID)
-        print(userAge)
-        
     }
 
 

@@ -15,6 +15,10 @@ import Firebase
 class SignUpVC: ParentViewController {
     
     //MARK: - iboutles
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var navbarView: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBOutlet weak var maleRadioBtn: DLRadioButton!
     @IBOutlet weak var femaleRadiobtn: DLRadioButton!
     
@@ -40,8 +44,6 @@ class SignUpVC: ParentViewController {
     @IBOutlet weak var parentsMobileNumberViewHeight: NSLayoutConstraint!
     @IBOutlet weak var passwordViewHeight: NSLayoutConstraint!
     @IBOutlet weak var confirmPasswordViewHeight: NSLayoutConstraint!
-
-    @IBOutlet weak var datePicker: UIDatePicker!
     
     //MARK: - variables
     var imagePicker: UIImagePickerController!
@@ -65,6 +67,7 @@ class SignUpVC: ParentViewController {
         
         //firstNameTxtField.enablesReturnKeyAutomatically = false
         datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -16, to: Date())
+        
     }
     
     //MARK: - ibactions
@@ -92,10 +95,10 @@ class SignUpVC: ParentViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    /// Does all the work of the signUp
+    ///
+    /// - Parameter sender: Any
     @IBAction func DoneBtnPressed(_ sender: Any) {
-        
-        
-        
         bordersBackToNormal()
         view.endEditing(true)
         
@@ -103,6 +106,15 @@ class SignUpVC: ParentViewController {
         {
             return
         }
+        
+        callWebService()
+        
+    }
+    
+    //MARK: - Almofire webrequest
+    func callWebService()
+    {
+        showLoading()
         
         var gender = "Male"
         if femaleRadiobtn.isSelected
@@ -116,11 +128,10 @@ class SignUpVC: ParentViewController {
         let selectedDate = dateFormatter.string(from: datePicker.date)
         
         let parameters = ["FName": firstNameTxtField.text!, "SName": lastNameTxtField.text! , "Mobile": mobileNumberTxtField.text! , "PMobile": parentsMobileNumberTxtField.text! , "Password": passwordTxtField.text! , "Date": selectedDate, "Gender": gender , "Image": imageURL!]
-
+        
         
         let url = URL(string: signUpUrl)
         
-        showLoading()
         Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
             if let dic =  response.result.value as? Dictionary<String ,AnyObject>
             {
@@ -148,16 +159,22 @@ class SignUpVC: ParentViewController {
                     userMobile = parameters["Mobile"]!
                     userImage = parameters["Image"]!
                     
+                    //Showing Alert
+                    self.showAlert()
+                    self.scrollView.isUserInteractionEnabled = false
+                    self.navbarView.isUserInteractionEnabled = false
+                    
                 }
             }
-     
+            
             // end of Almofire closure
             self.hideLoading()
+            
         }
     }
     
     //MARK: - segue to mainVC
-    private func goToMainVC()
+    @objc private func goToMainVC()
     {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
@@ -189,7 +206,7 @@ class SignUpVC: ParentViewController {
         self.firstNameBottomBorderView.backgroundColor = UIColor.darkGray
         self.firstNameViewHeight.constant = 1
     }
-    
+
     private func isAllFieldsAreFilledAndValidated() -> Bool
     {
         if firstNameTxtField.text == "" {
@@ -302,6 +319,21 @@ class SignUpVC: ParentViewController {
             return false
         }
     }
+    
+    //MARK: - popup view when finish signup
+  
+    func showAlert() {
+        if let alert = Bundle.main.loadNibNamed("CustomAlert", owner: self, options: nil)?.last as? CustomAlertView
+        {
+            self.view.addSubview(alert)
+            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+            
+            alert.goToNextPageBtn.addTarget(self, action: #selector(self.goToMainVC), for: UIControlEvents.touchUpInside)
+            self.view.bringSubview(toFront: alert)
+            alert.isUserInteractionEnabled = true
+        }
+    }
+
     
 }
 
@@ -416,6 +448,20 @@ extension SignUpVC: UITextFieldDelegate
             })
         }
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.tag == 3 || textField.tag == 4
+        {
+            let currentCharacterCount = textField.text?.characters.count ?? 0
+            if (range.length + range.location > currentCharacterCount){
+                return false
+            }
+            let newLength = currentCharacterCount + string.characters.count - range.length
+            return newLength <= 11
+        }
+        return true
+        
+    }
 }
 
 //MARK: - PickerView Delegete methods
@@ -424,6 +470,7 @@ extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
+            showLoading()
             avatarImage.image = image
             
             // Data in memory
@@ -447,8 +494,11 @@ extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 let downloadURL = metadata.downloadURL
                 self.imageURL = downloadURL()?.absoluteString
+                self.hideLoading()
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
     }
 }
+
+
