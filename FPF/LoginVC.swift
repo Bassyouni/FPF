@@ -119,6 +119,8 @@ class LoginVC: ParentViewController {
                             userPMobile = pMobile
                         }
                         
+                        userMobile = parameters["Mobile"]!
+                        
                         self.goToMainVC()
                     }
                 }

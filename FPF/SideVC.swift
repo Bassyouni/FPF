@@ -80,7 +80,29 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
         }, completion: {_ in
             self.indexSelected = indexPath.row
             self.tableMenu.reloadData()
-        })    }
+        })
+        
+        if indexPath.row == 0
+        {
+            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
+            menuContainerViewController.centerViewController = homeNav
+            self.menuContainerViewController.toggleLeftSideMenuCompletion({})
+        }
+        if indexPath.row == 1
+        {
+            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC")
+            menuContainerViewController.centerViewController = homeNav
+            self.menuContainerViewController.toggleLeftSideMenuCompletion({})
+        }
+        else if indexPath.row == 2
+        {
+            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "DownloadVC")
+            menuContainerViewController.centerViewController = homeNav
+            self.menuContainerViewController.toggleLeftSideMenuCompletion({})
+        }
+        
+        
+    }
 
     /*
     // MARK: - Navigation
