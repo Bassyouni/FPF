@@ -35,6 +35,8 @@
 		B85F18BF1F7D9BEC000263C8 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F18BC1F7D9BEC000263C8 /* RoundImage.swift */; };
 		B85F18C01F7D9BEC000263C8 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F18BD1F7D9BEC000263C8 /* LoginButton.swift */; };
 		B85F18C21F7D9BF7000263C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F18C11F7D9BF7000263C8 /* LoginVC.swift */; };
+		B89C782B1F8FF1E9007861AF /* PasswordPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = B89C782A1F8FF1E9007861AF /* PasswordPopUp.xib */; };
+		B89C782D1F8FF216007861AF /* EditPasswordPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */; };
 		B8CBCD351F7D9E6900DB0FD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */; };
 		B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */; };
 		E607878BEC1824D763269158 /* Pods_FPF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229C386058BC7F64B4BE1A9F /* Pods_FPF.framework */; };
@@ -80,6 +82,8 @@
 		B85F18BC1F7D9BEC000263C8 /* RoundImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
 		B85F18BD1F7D9BEC000263C8 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		B85F18C11F7D9BF7000263C8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		B89C782A1F8FF1E9007861AF /* PasswordPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasswordPopUp.xib; sourceTree = "<group>"; };
+		B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordPopUpView.swift; sourceTree = "<group>"; };
 		B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -249,10 +253,20 @@
 		B85F18BA1F7D9BD2000263C8 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				B89C78291F8FF1BC007861AF /* CustomAlertForPassword */,
 				B840B76C1F8D1EA600D345BF /* CustomAlert */,
 				B840B76B1F8D1E9900D345BF /* GameView */,
 			);
 			name = Xibs;
+			sourceTree = "<group>";
+		};
+		B89C78291F8FF1BC007861AF /* CustomAlertForPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B89C782A1F8FF1E9007861AF /* PasswordPopUp.xib */,
+				B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */,
+			);
+			name = CustomAlertForPassword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +339,7 @@
 				B840B7681F8D172000D345BF /* CustomAlert.xib in Resources */,
 				B85F18AC1F7D9AF4000263C8 /* Assets.xcassets in Resources */,
 				B8120D1B1F7DA07C00839C37 /* GameViewSB.xib in Resources */,
+				B89C782B1F8FF1E9007861AF /* PasswordPopUp.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +403,7 @@
 				B85F18C01F7D9BEC000263C8 /* LoginButton.swift in Sources */,
 				B8120D4D1F824D6200839C37 /* FPFCourses.swift in Sources */,
 				B83836BC1F87E53300C2852A /* SideMenuTableViewCell.swift in Sources */,
+				B89C782D1F8FF216007861AF /* EditPasswordPopUpView.swift in Sources */,
 				B8120D201F7E990600839C37 /* SignUpVC.swift in Sources */,
 				B840B7721F8D4F7E00D345BF /* CustomAlertView.swift in Sources */,
 				B85F18BE1F7D9BEC000263C8 /* LoginView.swift in Sources */,
