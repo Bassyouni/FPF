@@ -16,6 +16,7 @@
 		B8120D4D1F824D6200839C37 /* FPFCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D4C1F824D6200839C37 /* FPFCourses.swift */; };
 		B8120D511F8252E400839C37 /* MainVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */; };
 		B8120D531F829EBC00839C37 /* GuestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D521F829EBC00839C37 /* GuestVC.swift */; };
+		B82FAF5B1F92204A009EABC8 /* CourseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */; };
 		B83836BA1F87E47B00C2852A /* SideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83836B91F87E47B00C2852A /* SideVC.swift */; };
 		B83836BC1F87E53300C2852A /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */; };
 		B83836C01F87FA5C00C2852A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83836BF1F87FA5C00C2852A /* MainVC.swift */; };
@@ -55,6 +56,7 @@
 		B8120D4C1F824D6200839C37 /* FPFCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPFCourses.swift; sourceTree = "<group>"; };
 		B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableViewCell.swift; sourceTree = "<group>"; };
 		B8120D521F829EBC00839C37 /* GuestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestVC.swift; sourceTree = "<group>"; };
+		B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
 		B83836B91F87E47B00C2852A /* SideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideVC.swift; sourceTree = "<group>"; };
 		B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		B83836BF1F87FA5C00C2852A /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -205,11 +207,11 @@
 		B85F18B61F7D9BA8000263C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B83836D01F88117600C2852A /* FPF-Bridging-Header.h */,
+				B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */,
 				B840B7631F8BA99900D345BF /* ProgressHUD */,
 				B83836CB1F880F4300C2852A /* SideMenu */,
 				B85F18BA1F7D9BD2000263C8 /* Xibs */,
-				B83836D01F88117600C2852A /* FPF-Bridging-Header.h */,
-				B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -223,10 +225,10 @@
 				B8120D271F7FEDC500839C37 /* AboutUsVC.swift */,
 				B8120D4C1F824D6200839C37 /* FPFCourses.swift */,
 				B83836B91F87E47B00C2852A /* SideVC.swift */,
-				B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */,
 				B8120D521F829EBC00839C37 /* GuestVC.swift */,
 				B83836BF1F87FA5C00C2852A /* MainVC.swift */,
 				B840B7921F8F7CF400D345BF /* ProfileVC.swift */,
+				B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -239,6 +241,7 @@
 				B85F18BC1F7D9BEC000263C8 /* RoundImage.swift */,
 				B85F18BD1F7D9BEC000263C8 /* LoginButton.swift */,
 				B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */,
+				B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				B85F18BE1F7D9BEC000263C8 /* LoginView.swift in Sources */,
 				B83836C81F880F1A00C2852A /* MFSideMenuContainerViewController.m in Sources */,
 				B83836C91F880F1A00C2852A /* MFSideMenuShadow.m in Sources */,
+				B82FAF5B1F92204A009EABC8 /* CourseDetails.swift in Sources */,
 				B83836BA1F87E47B00C2852A /* SideVC.swift in Sources */,
 				B8120D531F829EBC00839C37 /* GuestVC.swift in Sources */,
 				B840B7931F8F7CF400D345BF /* ProfileVC.swift in Sources */,
