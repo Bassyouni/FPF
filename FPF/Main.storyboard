@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MtP-zn-9f4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -318,7 +318,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="FPF Courses" id="6Im-N2-Bu2"/>
                     <connections>
-                        <segue destination="J1e-cp-nSk" kind="show" id="KIm-ji-UDQ"/>
+                        <segue destination="J1e-cp-nSk" kind="show" identifier="CourseDetails" id="KIm-ji-UDQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obW-A4-6P5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -328,13 +328,13 @@
         <!--Course Details-->
         <scene sceneID="gBp-00-2Tz">
             <objects>
-                <tableViewController id="J1e-cp-nSk" customClass="CourseDetails" customModule="FPF" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="367" sectionHeaderHeight="28" sectionFooterHeight="28" id="QX9-9J-X2P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                <tableViewController storyboardIdentifier="CourseDetails" id="J1e-cp-nSk" customClass="CourseDetails" customModule="FPF" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="367" sectionHeaderHeight="28" sectionFooterHeight="28" id="QX9-9J-X2P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="367" id="VrQ-SZ-bzg" customClass="EnrollTableViewCell" customModule="FPF" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnrollTableViewCell" rowHeight="367" id="VrQ-SZ-bzg" customClass="EnrollTableViewCell" customModule="FPF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="367"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VrQ-SZ-bzg" id="FWV-Ng-qAB">
@@ -392,7 +392,7 @@
                                     <outlet property="gameImage" destination="vJN-IM-Il9" id="ecr-Ct-mVE"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="164" id="KtD-WZ-XzZ" customClass="TimeTableTableViewCell" customModule="FPF" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeTableTableViewCell" rowHeight="164" id="KtD-WZ-XzZ" customClass="TimeTableTableViewCell" customModule="FPF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="395" width="375" height="164"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KtD-WZ-XzZ" id="5mN-QT-cei">
@@ -524,7 +524,7 @@
                                     <outlet property="thirdViewTimeLabel" destination="T8f-Yl-AHg" id="gue-Xl-wfj"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="246" id="HlA-ZV-TKN" customClass="PriceTableViewCell" customModule="FPF" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceTableViewCell" rowHeight="246" id="HlA-ZV-TKN" customClass="PriceTableViewCell" customModule="FPF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="559" width="375" height="246"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HlA-ZV-TKN" id="ajA-vP-z7f">
@@ -799,8 +799,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Details" id="FrG-hb-iv1"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1000"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-ZA-koq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

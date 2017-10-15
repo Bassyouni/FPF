@@ -93,6 +93,10 @@ class FPFCourses: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "CourseDetails", sender: nil)
+    }
 
     /*
     // MARK: - Navigation

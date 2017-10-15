@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
 
@@ -19,7 +20,7 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
     //MARK: - variables
 //    var arrMenuTxt : [String] = ["Home" , "Check List" , "Budget List" , "Guest List" , "Settings"]
 //    var arrMenuImg : [String] = ["IconHome" , "IconCheckList" , "IconBudgetList" , "IconGuestList" , "IconSettings"]
-    var arrMenuTxt : [String] = ["Our Courses" , "About Us" , "Rate Us" , "Logout"]
+    var arrMenuTxt : [String] = ["Activity","Our Courses" ,"Profile", "About Us" , "Rate Us" , "Logout"]
     var indexSelected : Int? = 0
     
     //MARK: - view
@@ -27,13 +28,28 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
         super.viewDidLoad()
 
         // set name
-//        self.lblWelcome.text = NSLocalizedString("welcome", comment: "")
-//        self.lblName.text = userFName + " " + userLName
+        self.lblWelcome.text = NSLocalizedString("welcome", comment: "")
+        self.lblName.text = userFname + " " + userSName
 //
-//        if userImage == ""
-//        {
-//            self.imgProfile.image = UIImage(named: "IconDefault")
-//        }
+        if userImage == ""
+        {
+            self.imgProfile.image = UIImage(named: "male")
+        }
+        else
+        {
+            let url = URL(string: userImage)!
+            Alamofire.request(url).responseData { response in
+                if let data = response.result.value
+                {
+                    let image = UIImage(data: data)
+                    self.imgProfile.image = image
+                }
+                else
+                {
+                    print("Error loading image Almofire")
+                }
+            }
+        }
         
         
     }
@@ -86,20 +102,29 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
         {
             let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "MainVC")
             menuContainerViewController.centerViewController = homeNav
-            self.menuContainerViewController.toggleLeftSideMenuCompletion({})
         }
         if indexPath.row == 1
         {
-            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC")
+            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "FPFCourses")
             menuContainerViewController.centerViewController = homeNav
-            self.menuContainerViewController.toggleLeftSideMenuCompletion({})
         }
         else if indexPath.row == 2
         {
-            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "DownloadVC")
+            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC")
             menuContainerViewController.centerViewController = homeNav
-            self.menuContainerViewController.toggleLeftSideMenuCompletion({})
+            
         }
+        else if indexPath.row == 3
+        {
+            let homeNav = self.storyboard?.instantiateViewController(withIdentifier: "AboutUsVC")
+            menuContainerViewController.centerViewController = homeNav
+        }
+        else if indexPath.row == 4
+        {
+            
+        }
+        
+        self.menuContainerViewController.toggleLeftSideMenuCompletion({})
         
         
     }
