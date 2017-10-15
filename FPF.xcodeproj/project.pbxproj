@@ -17,6 +17,9 @@
 		B8120D511F8252E400839C37 /* MainVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */; };
 		B8120D531F829EBC00839C37 /* GuestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D521F829EBC00839C37 /* GuestVC.swift */; };
 		B82FAF5B1F92204A009EABC8 /* CourseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */; };
+		B82FAF5D1F92557F009EABC8 /* EnrollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FAF5C1F92557F009EABC8 /* EnrollTableViewCell.swift */; };
+		B82FAF5F1F92558F009EABC8 /* TimeTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FAF5E1F92558F009EABC8 /* TimeTableTableViewCell.swift */; };
+		B82FAF611F92559D009EABC8 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82FAF601F92559D009EABC8 /* PriceTableViewCell.swift */; };
 		B83836BA1F87E47B00C2852A /* SideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83836B91F87E47B00C2852A /* SideVC.swift */; };
 		B83836BC1F87E53300C2852A /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */; };
 		B83836C01F87FA5C00C2852A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83836BF1F87FA5C00C2852A /* MainVC.swift */; };
@@ -57,6 +60,9 @@
 		B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCTableViewCell.swift; sourceTree = "<group>"; };
 		B8120D521F829EBC00839C37 /* GuestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestVC.swift; sourceTree = "<group>"; };
 		B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
+		B82FAF5C1F92557F009EABC8 /* EnrollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollTableViewCell.swift; sourceTree = "<group>"; };
+		B82FAF5E1F92558F009EABC8 /* TimeTableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableTableViewCell.swift; sourceTree = "<group>"; };
+		B82FAF601F92559D009EABC8 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		B83836B91F87E47B00C2852A /* SideVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideVC.swift; sourceTree = "<group>"; };
 		B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		B83836BF1F87FA5C00C2852A /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -131,7 +137,84 @@
 			name = BoilerPlate;
 			sourceTree = "<group>";
 		};
-		B83836CB1F880F4300C2852A /* SideMenu */ = {
+		B82FAF621F933623009EABC8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B83836BF1F87FA5C00C2852A /* MainVC.swift */,
+				B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		B82FAF631F933641009EABC8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B85F18C11F7D9BF7000263C8 /* LoginVC.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		B82FAF641F933654009EABC8 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B8120D1F1F7E990600839C37 /* SignUpVC.swift */,
+			);
+			name = SignUp;
+			sourceTree = "<group>";
+		};
+		B82FAF651F93366C009EABC8 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				B8120D271F7FEDC500839C37 /* AboutUsVC.swift */,
+			);
+			name = AboutUs;
+			sourceTree = "<group>";
+		};
+		B82FAF661F93367E009EABC8 /* FPFCourses */ = {
+			isa = PBXGroup;
+			children = (
+				B8120D4C1F824D6200839C37 /* FPFCourses.swift */,
+			);
+			name = FPFCourses;
+			sourceTree = "<group>";
+		};
+		B82FAF671F9336A8009EABC8 /* SiideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				B83836B91F87E47B00C2852A /* SideVC.swift */,
+				B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */,
+			);
+			name = SiideMenu;
+			sourceTree = "<group>";
+		};
+		B82FAF681F9336C2009EABC8 /* Guest */ = {
+			isa = PBXGroup;
+			children = (
+				B8120D521F829EBC00839C37 /* GuestVC.swift */,
+			);
+			name = Guest;
+			sourceTree = "<group>";
+		};
+		B82FAF691F9336CD009EABC8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B840B7921F8F7CF400D345BF /* ProfileVC.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		B82FAF6A1F9336DA009EABC8 /* CourseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */,
+				B82FAF5C1F92557F009EABC8 /* EnrollTableViewCell.swift */,
+				B82FAF5E1F92558F009EABC8 /* TimeTableTableViewCell.swift */,
+				B82FAF601F92559D009EABC8 /* PriceTableViewCell.swift */,
+			);
+			name = CourseDetails;
+			sourceTree = "<group>";
+		};
+		B83836CB1F880F4300C2852A /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
 				B83836C11F880F1A00C2852A /* MFSideMenuShadow.h */,
@@ -142,7 +225,7 @@
 				B83836C61F880F1A00C2852A /* UIViewController+MFSideMenuAdditions.h */,
 				B83836C71F880F1A00C2852A /* UIViewController+MFSideMenuAdditions.m */,
 			);
-			name = SideMenu;
+			name = MFSideMenu;
 			sourceTree = "<group>";
 		};
 		B840B7631F8BA99900D345BF /* ProgressHUD */ = {
@@ -197,7 +280,16 @@
 				B8120D291F7FEDFF00839C37 /* BoilerPlate */,
 				B85F18B91F7D9BC9000263C8 /* Model */,
 				B85F18B81F7D9BBE000263C8 /* View */,
-				B85F18B71F7D9BB8000263C8 /* Controller */,
+				B85F18B71F7D9BB8000263C8 /* Landing */,
+				B82FAF631F933641009EABC8 /* Login */,
+				B82FAF641F933654009EABC8 /* SignUp */,
+				B82FAF681F9336C2009EABC8 /* Guest */,
+				B82FAF691F9336CD009EABC8 /* Profile */,
+				B82FAF671F9336A8009EABC8 /* SiideMenu */,
+				B82FAF621F933623009EABC8 /* Main */,
+				B82FAF661F93367E009EABC8 /* FPFCourses */,
+				B82FAF6A1F9336DA009EABC8 /* CourseDetails */,
+				B82FAF651F93366C009EABC8 /* AboutUs */,
 				B85F18B61F7D9BA8000263C8 /* Resources */,
 				B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */,
 			);
@@ -210,38 +302,27 @@
 				B83836D01F88117600C2852A /* FPF-Bridging-Header.h */,
 				B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */,
 				B840B7631F8BA99900D345BF /* ProgressHUD */,
-				B83836CB1F880F4300C2852A /* SideMenu */,
-				B85F18BA1F7D9BD2000263C8 /* Xibs */,
+				B83836CB1F880F4300C2852A /* MFSideMenu */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		B85F18B71F7D9BB8000263C8 /* Controller */ = {
+		B85F18B71F7D9BB8000263C8 /* Landing */ = {
 			isa = PBXGroup;
 			children = (
 				B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */,
-				B85F18C11F7D9BF7000263C8 /* LoginVC.swift */,
-				B8120D1F1F7E990600839C37 /* SignUpVC.swift */,
-				B8120D271F7FEDC500839C37 /* AboutUsVC.swift */,
-				B8120D4C1F824D6200839C37 /* FPFCourses.swift */,
-				B83836B91F87E47B00C2852A /* SideVC.swift */,
-				B8120D521F829EBC00839C37 /* GuestVC.swift */,
-				B83836BF1F87FA5C00C2852A /* MainVC.swift */,
-				B840B7921F8F7CF400D345BF /* ProfileVC.swift */,
-				B82FAF5A1F92204A009EABC8 /* CourseDetails.swift */,
 			);
-			name = Controller;
+			name = Landing;
 			sourceTree = "<group>";
 		};
 		B85F18B81F7D9BBE000263C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B85F18BA1F7D9BD2000263C8 /* Xibs */,
 				B8120D251F7EDB7800839C37 /* ShadowView.swift */,
 				B85F18BB1F7D9BEC000263C8 /* LoginView.swift */,
 				B85F18BC1F7D9BEC000263C8 /* RoundImage.swift */,
 				B85F18BD1F7D9BEC000263C8 /* LoginButton.swift */,
-				B8120D501F8252E400839C37 /* MainVCTableViewCell.swift */,
-				B83836BB1F87E53300C2852A /* SideMenuTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -402,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8120D511F8252E400839C37 /* MainVCTableViewCell.swift in Sources */,
+				B82FAF5F1F92558F009EABC8 /* TimeTableTableViewCell.swift in Sources */,
 				B83836C01F87FA5C00C2852A /* MainVC.swift in Sources */,
 				B85F18C01F7D9BEC000263C8 /* LoginButton.swift in Sources */,
 				B8120D4D1F824D6200839C37 /* FPFCourses.swift in Sources */,
@@ -410,6 +492,7 @@
 				B8120D201F7E990600839C37 /* SignUpVC.swift in Sources */,
 				B840B7721F8D4F7E00D345BF /* CustomAlertView.swift in Sources */,
 				B85F18BE1F7D9BEC000263C8 /* LoginView.swift in Sources */,
+				B82FAF5D1F92557F009EABC8 /* EnrollTableViewCell.swift in Sources */,
 				B83836C81F880F1A00C2852A /* MFSideMenuContainerViewController.m in Sources */,
 				B83836C91F880F1A00C2852A /* MFSideMenuShadow.m in Sources */,
 				B82FAF5B1F92204A009EABC8 /* CourseDetails.swift in Sources */,
@@ -427,6 +510,7 @@
 				B83836CA1F880F1A00C2852A /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */,
 				B8120D281F7FEDC500839C37 /* AboutUsVC.swift in Sources */,
+				B82FAF611F92559D009EABC8 /* PriceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
