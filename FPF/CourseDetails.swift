@@ -7,107 +7,250 @@
 //
 
 import UIKit
+import Alamofire
 
 class CourseDetails: UITableViewController {
+    
+    //MARK: - variables
+
+    var hud : MBProgressHUD!
+    
+    var course: Course!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.title = course.name
+        if let topItem = self.navigationController?.navigationBar.topItem
+        {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "" , style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "EnrollTableViewCell", for: indexPath) as? EnrollTableViewCell
-        {
-            // Configure the cell...
-            
-            return cell
-        }
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TimeTableTableViewCell", for: indexPath) as? TimeTableTableViewCell
-        {
-            // Configure the cell...
-            
-            return cell
-        }
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTableViewCell", for: indexPath) as? PriceTableViewCell
-        {
-            // Configure the cell...
-            
-            return cell
-        }
         
+        if indexPath.section == 0
+        {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "EnrollTableViewCell", for: indexPath) as? EnrollTableViewCell
+            {
+                cell.configureCell(course: course)
+                cell.enrollBtn.tag = 100
+                cell.enrollBtn.addTarget(self, action: #selector(enrollBtnPressed), for: UIControlEvents.touchUpInside)
+                
+                return cell
+            }
+        }
+        else if indexPath.section == 1
+        {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "TimeTableTableViewCell", for: indexPath) as? TimeTableTableViewCell
+            {
+                cell.configureCell(course: course)
+                
+                return cell
+            }
+        }
+        else if indexPath.section == 2
+        {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTableViewCell", for: indexPath) as? PriceTableViewCell
+            {
+                cell.configureCell(course: course)
+                
+                return cell
+            }
+        }
         return UITableViewCell()
         
+        
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0
+        {
+            return 367
+        }
+        else if indexPath.section == 1
+        {
+            return 164
+        }
+        else if indexPath.section == 2
+        {
+            var rowHeight = 56
+            if course.pricePerSession != "none"
+            {
+                rowHeight += 60
+            }
+            if course.pricePerMonth8Sessions != "none"
+            {
+                rowHeight += 65
+            }
+            if course.pricePerMonth12Sessions != "none"
+            {
+                rowHeight += 65
+            }
+            return CGFloat(rowHeight)
+        }
+        else
+        {
+            return 0
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: - ibactions
+    @IBAction func enrollBtnPressed(_ sender: UIButton) {
+        if sender.tag == 100
+        {
+            showEnrollAlert()
+            self.tableView.isScrollEnabled = false
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    // MARK: enrolling sequence
+    func showEnrollAlert() {
+        if let alert = Bundle.main.loadNibNamed("EnrollAlert", owner: self, options: nil)?.last as? EnrollAlertView
+        {
+            self.view.addSubview(alert)
+            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+            
+            alert.tag = 200
+            
+            let aSelector : Selector = #selector(EnrollTableViewCell.removeSubview)
+            let tapGesture = UITapGestureRecognizer(target:self, action: aSelector)
+            alert.addGestureRecognizer(tapGesture)
+            
+            alert.enrollBtn.addTarget(self, action: #selector(self.enrollToCourse), for: UIControlEvents.touchUpInside)
+            
+            if course.pricePerSession == "none"
+            {
+                alert.bySessionBtn.isHidden = true
+            }
+            if course.pricePerMonth8Sessions == "none"
+            {
+                alert.monthly8btn.isHidden = true
+            }
+            if course.pricePerMonth12Sessions == "none" {
+                alert.monthly12btn.isHidden = true
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func enrollToCourse(alert: UIView)
+    {
+        if let alert = self.view.viewWithTag(200) as? EnrollAlertView
+        {
+            var selected = "none"
+            if alert.bySessionBtn.isSelected == true
+            {
+                selected = "session"
+            }
+            else if alert.monthly8btn.isSelected == true
+            {
+                selected = "8_session"
+            }
+            else if alert.monthly12btn.isSelected == true
+            {
+                selected = "12_session"
+            }
+            else
+            {
+                return
+            }
+            
+            addCourseOnServer(type: selected)
+            
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func addCourseOnServer(type: String)
+    {
+        let url = URL(string: addToMyCoursesUrl)
+        
+        let parameters = ["User_ID": userID , "Course_ID": course.id , "type": type]
+        
+        self.showLoading()
+        Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
+            
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String , AnyObject>
+            {
+                if let serverResponse = dict["response"] as? String
+                {
+                    if serverResponse == "Error"
+                    {
+                        let alert = UIAlertController(title: "Error", message: "error saveing on server, please try again", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    else
+                    {
+                        self.removeSubview()
+                        self.showSuccsessAlert()
+                    }
+                }
+            }
+            self.hideLoading()
+        }
     }
-    */
+    
+    func removeSubview()
+    {
+        print("Start remove sibview")
+        if let viewWithTag = self.view.viewWithTag(200) {
+            viewWithTag.removeFromSuperview()
+            self.tableView.isScrollEnabled = true
+        }else{
+            print("No!")
+        }
+    }
+
+    func showSuccsessAlert()
+    {
+        if let alert = Bundle.main.loadNibNamed("CustomAlert", owner: self, options: nil)?.last as? CustomAlertView
+        {
+            self.view.addSubview(alert)
+            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+            alert.alertHeightConstraint.constant = 280
+            alert.titleLabel.text = "Hurray!!"
+            alert.bodyLabel.text = "You are successfully enrolled\nYou have to visit FPF as soon as possible\nYour request will be granted once you pay the fees"
+        
+            
+            alert.goToNextPageBtn.addTarget(self, action: #selector(self.goBackToFPFCourses), for: UIControlEvents.touchUpInside)
+            self.view.bringSubview(toFront: alert)
+            alert.isUserInteractionEnabled = true
+        }
+    }
+    
+    func goBackToFPFCourses()
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
-
+    //MARK: - progress hud
+    func showLoading()
+    {
+        //        self.view.alpha = 0.5
+        //    self.view.backgroundColor = UIColor.blackColor()
+        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = MBProgressHUDModeIndeterminate
+    }
+    
+    func hideLoading()
+    {
+        //        self.view.alpha = 1.0
+        self.hud.hide(true)
+    }
+    
 }

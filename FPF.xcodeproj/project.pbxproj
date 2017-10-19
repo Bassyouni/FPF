@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B804E9591F99115800BF2F74 /* EnrollAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = B804E9581F99115800BF2F74 /* EnrollAlert.xib */; };
+		B804E95B1F99116C00BF2F74 /* EnrollAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */; };
 		B8120D1B1F7DA07C00839C37 /* GameViewSB.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8120D191F7DA07C00839C37 /* GameViewSB.xib */; };
 		B8120D1C1F7DA07C00839C37 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1A1F7DA07C00839C37 /* GameView.swift */; };
 		B8120D1E1F7DA0AC00839C37 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */; };
@@ -43,6 +45,9 @@
 		B89C782D1F8FF216007861AF /* EditPasswordPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */; };
 		B8CBCD351F7D9E6900DB0FD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */; };
 		B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */; };
+		B8F3AAEE1F97A747006B3804 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3AAED1F97A747006B3804 /* MaterialView.swift */; };
+		B8F3AAF01F97A96C006B3804 /* MaterialDesginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3AAEF1F97A96C006B3804 /* MaterialDesginView.swift */; };
+		B8F3AAF21F98B826006B3804 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3AAF11F98B826006B3804 /* Course.swift */; };
 		E607878BEC1824D763269158 /* Pods_FPF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229C386058BC7F64B4BE1A9F /* Pods_FPF.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +55,8 @@
 		229C386058BC7F64B4BE1A9F /* Pods_FPF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FPF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		525A59DE41A2D482EE78F5E9 /* Pods-FPF.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPF.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FPF/Pods-FPF.debug.xcconfig"; sourceTree = "<group>"; };
 		689E1455127B563BCFDB663C /* Pods-FPF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPF.release.xcconfig"; path = "Pods/Target Support Files/Pods-FPF/Pods-FPF.release.xcconfig"; sourceTree = "<group>"; };
+		B804E9581F99115800BF2F74 /* EnrollAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnrollAlert.xib; sourceTree = "<group>"; };
+		B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollAlertView.swift; sourceTree = "<group>"; };
 		B8120D191F7DA07C00839C37 /* GameViewSB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewSB.xib; sourceTree = "<group>"; };
 		B8120D1A1F7DA07C00839C37 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
@@ -94,6 +101,9 @@
 		B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordPopUpView.swift; sourceTree = "<group>"; };
 		B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8F3AAED1F97A747006B3804 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		B8F3AAEF1F97A96C006B3804 /* MaterialDesginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialDesginView.swift; sourceTree = "<group>"; };
+		B8F3AAF11F98B826006B3804 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +133,15 @@
 				689E1455127B563BCFDB663C /* Pods-FPF.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B804E9571F99112800BF2F74 /* EnrollAlert */ = {
+			isa = PBXGroup;
+			children = (
+				B804E9581F99115800BF2F74 /* EnrollAlert.xib */,
+				B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */,
+			);
+			name = EnrollAlert;
 			sourceTree = "<group>";
 		};
 		B8120D291F7FEDFF00839C37 /* BoilerPlate */ = {
@@ -277,6 +296,7 @@
 		B85F18A31F7D9AF4000263C8 /* FPF */ = {
 			isa = PBXGroup;
 			children = (
+				B8F3AAED1F97A747006B3804 /* MaterialView.swift */,
 				B8120D291F7FEDFF00839C37 /* BoilerPlate */,
 				B85F18B91F7D9BC9000263C8 /* Model */,
 				B85F18B81F7D9BBE000263C8 /* View */,
@@ -323,6 +343,7 @@
 				B85F18BB1F7D9BEC000263C8 /* LoginView.swift */,
 				B85F18BC1F7D9BEC000263C8 /* RoundImage.swift */,
 				B85F18BD1F7D9BEC000263C8 /* LoginButton.swift */,
+				B8F3AAEF1F97A96C006B3804 /* MaterialDesginView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -330,6 +351,7 @@
 		B85F18B91F7D9BC9000263C8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8F3AAF11F98B826006B3804 /* Course.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,6 +359,7 @@
 		B85F18BA1F7D9BD2000263C8 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				B804E9571F99112800BF2F74 /* EnrollAlert */,
 				B89C78291F8FF1BC007861AF /* CustomAlertForPassword */,
 				B840B76C1F8D1EA600D345BF /* CustomAlert */,
 				B840B76B1F8D1E9900D345BF /* GameView */,
@@ -421,6 +444,7 @@
 				B85F18AF1F7D9AF4000263C8 /* LaunchScreen.storyboard in Resources */,
 				B840B7661F8BE16000D345BF /* GoogleService-Info.plist in Resources */,
 				B840B7681F8D172000D345BF /* CustomAlert.xib in Resources */,
+				B804E9591F99115800BF2F74 /* EnrollAlert.xib in Resources */,
 				B85F18AC1F7D9AF4000263C8 /* Assets.xcassets in Resources */,
 				B8120D1B1F7DA07C00839C37 /* GameViewSB.xib in Resources */,
 				B89C782B1F8FF1E9007861AF /* PasswordPopUp.xib in Resources */,
@@ -484,6 +508,7 @@
 			files = (
 				B8120D511F8252E400839C37 /* MainVCTableViewCell.swift in Sources */,
 				B82FAF5F1F92558F009EABC8 /* TimeTableTableViewCell.swift in Sources */,
+				B804E95B1F99116C00BF2F74 /* EnrollAlertView.swift in Sources */,
 				B83836C01F87FA5C00C2852A /* MainVC.swift in Sources */,
 				B85F18C01F7D9BEC000263C8 /* LoginButton.swift in Sources */,
 				B8120D4D1F824D6200839C37 /* FPFCourses.swift in Sources */,
@@ -501,14 +526,17 @@
 				B840B7931F8F7CF400D345BF /* ProfileVC.swift in Sources */,
 				B85F18C21F7D9BF7000263C8 /* LoginVC.swift in Sources */,
 				B85F18BF1F7D9BEC000263C8 /* RoundImage.swift in Sources */,
+				B8F3AAF01F97A96C006B3804 /* MaterialDesginView.swift in Sources */,
 				B85F18A51F7D9AF4000263C8 /* AppDelegate.swift in Sources */,
 				B8120D1C1F7DA07C00839C37 /* GameView.swift in Sources */,
 				B840B7621F8BA98800D345BF /* MBProgressHUD.m in Sources */,
 				B8120D261F7EDB7800839C37 /* ShadowView.swift in Sources */,
+				B8F3AAF21F98B826006B3804 /* Course.swift in Sources */,
 				B8120D1E1F7DA0AC00839C37 /* LandingVC.swift in Sources */,
 				B840B7611F8BA98800D345BF /* ParentViewController.swift in Sources */,
 				B83836CA1F880F1A00C2852A /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */,
+				B8F3AAEE1F97A747006B3804 /* MaterialView.swift in Sources */,
 				B8120D281F7FEDC500839C37 /* AboutUsVC.swift in Sources */,
 				B82FAF611F92559D009EABC8 /* PriceTableViewCell.swift in Sources */,
 			);

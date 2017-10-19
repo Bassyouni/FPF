@@ -10,8 +10,12 @@ import UIKit
 
 class CustomAlertView: UIView {
 
+    @IBOutlet weak var alertHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var goToNextPageBtn: UIButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var bodyLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 5

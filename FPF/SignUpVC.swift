@@ -327,6 +327,9 @@ class SignUpVC: ParentViewController {
         {
             self.view.addSubview(alert)
             alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+            alert.titleLabel.text = "Congratulations!"
+            alert.bodyLabel.text = "You are now part of the family"
+            alert.alertHeightConstraint.constant = 180
             
             alert.goToNextPageBtn.addTarget(self, action: #selector(self.goToMainVC), for: UIControlEvents.touchUpInside)
             self.view.bringSubview(toFront: alert)

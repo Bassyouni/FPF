@@ -19,11 +19,23 @@ class MainVCTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureCell(title:String , quote: String , image: String)
+    func configureCell(course: Course)
     {
-        gameImageView.image = UIImage(named: image)
-        self.titleLabel.text = title
-        self.quoteLabel.text = quote
+        if course.id == "1"
+        {
+            gameImageView.image = UIImage(named: "parkour_item in list")
+        }
+        else if course.id == "2"
+        {
+            gameImageView.image = UIImage(named: "mma_item in list")
+        }
+        else if course.id == "3"
+        {
+            gameImageView.image = UIImage(named: "street_workout_item in list")
+        }
+        
+        self.titleLabel.text = course.name
+        self.quoteLabel.text = course.quote
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

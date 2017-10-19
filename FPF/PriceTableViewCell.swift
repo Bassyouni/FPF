@@ -11,26 +11,47 @@ import UIKit
 class PriceTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var seassionView: UIView!
-    @IBOutlet weak var seassionPrice: UILabel!
+    @IBOutlet weak var sessionView: UIView!
+    @IBOutlet weak var sessionPrice: UILabel!
     
-    @IBOutlet weak var eightSeassionsView: UIView!
-    @IBOutlet weak var eaightSessionPrice: UILabel!
+    @IBOutlet weak var eightSessionsView: UIView!
+    @IBOutlet weak var eightSessionPrice: UILabel!
     
-    @IBOutlet weak var sixteenSeassionsView: UIView!
-    @IBOutlet weak var sixteenSeassionPrice: UILabel!
+    @IBOutlet weak var sixteenSessionsView: UIView!
+    @IBOutlet weak var sixteenSessionPrice: UILabel!
     
-    
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(course: Course)
+    {
+        if course.pricePerSession == "none"
+        {
+            sessionView.isHidden = true
+        }
+        else
+        {
+            sessionPrice.text = course.pricePerSession
+            sessionView.isHidden = false
+        }
+        
+        if course.pricePerMonth8Sessions == "none"
+        {
+            eightSessionsView.isHidden = true
+        }
+        else
+        {
+            eightSessionPrice.text = course.pricePerMonth8Sessions
+            eightSessionsView.isHidden = false
+        }
+        
+        if course.pricePerMonth12Sessions == "none"
+        {
+            sixteenSessionsView.isHidden = true
+        }
+        else
+        {
+            sixteenSessionPrice.text = course.pricePerMonth12Sessions
+            sixteenSessionsView.isHidden = false
+        }
+        
     }
 
 }

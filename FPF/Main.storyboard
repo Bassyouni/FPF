@@ -370,9 +370,6 @@
                                                     <real key="value" value="22"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="EnrollBtnPressed:" destination="VrQ-SZ-bzg" eventType="touchUpInside" id="jRa-Ze-Ict"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -388,14 +385,15 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="gameDescription" destination="0RA-Sw-30j" id="qZt-Up-ZSP"/>
-                                    <outlet property="gameImage" destination="vJN-IM-Il9" id="ecr-Ct-mVE"/>
+                                    <outlet property="courseDescription" destination="0RA-Sw-30j" id="BJc-yc-6fn"/>
+                                    <outlet property="courseImage" destination="vJN-IM-Il9" id="QpD-nT-QHh"/>
+                                    <outlet property="enrollBtn" destination="7rb-6N-dX1" id="WJE-KZ-bbD"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeTableTableViewCell" rowHeight="164" id="KtD-WZ-XzZ" customClass="TimeTableTableViewCell" customModule="FPF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="395" width="375" height="164"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KtD-WZ-XzZ" id="5mN-QT-cei">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KtD-WZ-XzZ" id="5mN-QT-cei" customClass="MaterialView" customModule="FPF" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -516,10 +514,13 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="firstDayView" destination="O47-fL-f33" id="W04-Te-8MD"/>
                                     <outlet property="firstViewDayLabel" destination="fOc-WO-ohV" id="FVb-DP-FuL"/>
                                     <outlet property="firstViewTimeLabel" destination="q5d-AD-Zvv" id="9PK-Dp-SCp"/>
+                                    <outlet property="secondDayView" destination="RVE-sH-s4o" id="FGY-ve-bUs"/>
                                     <outlet property="secondViewDayLabel" destination="9Kz-MQ-nat" id="OHd-2N-lDi"/>
                                     <outlet property="secondViewTimeLabel" destination="Vuq-p6-S0V" id="DWD-sA-ych"/>
+                                    <outlet property="thirdDayView" destination="lls-L3-bAG" id="f9L-vY-Zho"/>
                                     <outlet property="thirdViewDayLabel" destination="uKt-Ft-npM" id="Qj2-gI-VEV"/>
                                     <outlet property="thirdViewTimeLabel" destination="T8f-Yl-AHg" id="gue-Xl-wfj"/>
                                 </connections>
@@ -527,7 +528,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceTableViewCell" rowHeight="246" id="HlA-ZV-TKN" customClass="PriceTableViewCell" customModule="FPF" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="559" width="375" height="246"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HlA-ZV-TKN" id="ajA-vP-z7f">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HlA-ZV-TKN" id="ajA-vP-z7f" customClass="MaterialView" customModule="FPF" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="246"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -784,12 +785,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="eaightSessionPrice" destination="onq-fs-iD3" id="1vI-rP-lT9"/>
-                                    <outlet property="eightSeassionsView" destination="YKx-lN-8nG" id="HMC-61-R6t"/>
-                                    <outlet property="seassionPrice" destination="oRd-PE-C7E" id="1lS-7x-MBz"/>
-                                    <outlet property="seassionView" destination="pta-jJ-KdI" id="NQk-LC-5Yk"/>
-                                    <outlet property="sixteenSeassionPrice" destination="FKi-3x-u7C" id="prJ-Vd-SzX"/>
-                                    <outlet property="sixteenSeassionsView" destination="xVB-FB-uQj" id="ikR-nh-fAZ"/>
+                                    <outlet property="eightSessionPrice" destination="onq-fs-iD3" id="Tuz-kp-Gvb"/>
+                                    <outlet property="eightSessionsView" destination="YKx-lN-8nG" id="zCR-Sh-bBb"/>
+                                    <outlet property="sessionPrice" destination="oRd-PE-C7E" id="plx-GJ-EMm"/>
+                                    <outlet property="sessionView" destination="pta-jJ-KdI" id="tSM-2d-cEQ"/>
+                                    <outlet property="sixteenSessionPrice" destination="FKi-3x-u7C" id="nuB-B5-uLB"/>
+                                    <outlet property="sixteenSessionsView" destination="xVB-FB-uQj" id="YR5-W4-tW0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -888,8 +889,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MC2-rV-h3e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

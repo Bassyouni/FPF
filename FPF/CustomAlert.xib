@@ -41,7 +41,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4w-Im-eLA" customClass="LoginButton" customModule="FPF" customModuleProvider="target">
-                            <rect key="frame" x="103" y="99" width="149" height="64"/>
+                            <rect key="frame" x="103" y="106" width="149" height="64"/>
                             <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="149" id="R8z-ez-1az"/>
@@ -52,8 +52,8 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are now part of the family" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="cO4-z2-KKH">
-                            <rect key="frame" x="46" y="58" width="263" height="26"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are now part of the family" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="cO4-z2-KKH">
+                            <rect key="frame" x="5" y="58" width="345" height="26"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
                             <color key="textColor" red="0.050980392159999999" green="0.2784313725" blue="0.56682927976923081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -61,12 +61,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Z4w-Im-eLA" firstAttribute="top" secondItem="cO4-z2-KKH" secondAttribute="bottom" constant="15" id="Jog-se-i8q"/>
+                        <constraint firstAttribute="bottom" secondItem="Z4w-Im-eLA" secondAttribute="bottom" constant="10" id="7nM-1n-x6L"/>
                         <constraint firstItem="4mI-CF-9vr" firstAttribute="top" secondItem="z8Y-dk-yaG" secondAttribute="top" constant="20" id="OMf-M8-CED"/>
                         <constraint firstItem="Z4w-Im-eLA" firstAttribute="centerX" secondItem="z8Y-dk-yaG" secondAttribute="centerX" id="RDa-oq-gKi"/>
+                        <constraint firstItem="cO4-z2-KKH" firstAttribute="leading" secondItem="z8Y-dk-yaG" secondAttribute="leading" constant="5" id="XrK-62-VYm"/>
                         <constraint firstAttribute="height" constant="180" id="aj9-Mf-xzd"/>
                         <constraint firstItem="4mI-CF-9vr" firstAttribute="centerX" secondItem="z8Y-dk-yaG" secondAttribute="centerX" id="nbS-IF-f1K"/>
                         <constraint firstItem="cO4-z2-KKH" firstAttribute="top" secondItem="4mI-CF-9vr" secondAttribute="bottom" constant="10" id="nfN-8K-luh"/>
+                        <constraint firstAttribute="trailing" secondItem="cO4-z2-KKH" secondAttribute="trailing" constant="5" id="qxf-05-GJ5"/>
                         <constraint firstItem="cO4-z2-KKH" firstAttribute="centerX" secondItem="z8Y-dk-yaG" secondAttribute="centerX" id="ua8-Sn-RXO"/>
                     </constraints>
                 </view>
@@ -85,7 +87,10 @@
                 <constraint firstItem="NlU-D2-qeB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-5" id="yjW-Ej-xIL"/>
             </constraints>
             <connections>
+                <outlet property="alertHeightConstraint" destination="aj9-Mf-xzd" id="Bk9-9X-gmx"/>
+                <outlet property="bodyLabel" destination="cO4-z2-KKH" id="eaG-Qm-pOa"/>
                 <outlet property="goToNextPageBtn" destination="Z4w-Im-eLA" id="FJr-qX-HBw"/>
+                <outlet property="titleLabel" destination="4mI-CF-9vr" id="Mmb-yZ-MYv"/>
             </connections>
             <point key="canvasLocation" x="-47.5" y="-154.5"/>
         </view>
