@@ -7,82 +7,112 @@
 //
 
 import UIKit
+import Alamofire
 
-class MainVC: UITableViewController {
+class MainVC: ParentViewController {
 
+    //MARK: - iboutlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - variables
+    var coursesArray = [Course]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        showLoading()
+        grabDataFromApi {
+            self.tableView.reloadData()
+            self.hideLoading()
+        }
+    }
+    
+    // MARK: - webservice call to get data
+    func grabDataFromApi(completed:@escaping DownloadCompleted)
+    {
+        let url = URL(string: showMyCoursesUrl)
+        
+        let parameters = ["User_ID": userID]
+        
+        Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
+            
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String , AnyObject>
+            {
+                
+                let result = dict["response"] as? String
+                
+                if result == "Error"
+                {
+                    print("response error in courses to user !")
+                }
+                else
+                {
+                    for i in 0...2
+                    {
+                        if let courseDict = dict["\(i)"] as? Dictionary<String, String>
+                        {
+                            let course = Course()
+                            course.populateClassFromApi(dict: courseDict)
+                            self.coursesArray.append(course)
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            else
+            {
+                print("error in courses \(response.error.debugDescription)")
+            }
+            completed()
+        }
+        
+        
     }
 
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @IBAction func menuBtnPressed(_ sender: Any) {
+    // MARK: - ibactions
+    @IBAction func menuBtnPressed(_ sender: Any)
+    {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({})
     }
 
 }
+
+    // MARK: - Table view data source
+extension MainVC: UITableViewDelegate , UITableViewDataSource
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return coursesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCTableViewCell") as? MainVCTableViewCell
+        {
+            cell.configureCell(course: coursesArray[indexPath.row])
+            return cell
+        }
+        else
+        {
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+}
+
+
+
+

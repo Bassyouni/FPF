@@ -28,12 +28,12 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
         super.viewDidLoad()
 
         // set name
-        self.lblWelcome.text = NSLocalizedString("welcome", comment: "")
-        self.lblName.text = userFname + " " + userSName
+        lblWelcome.text = NSLocalizedString("Welcome", comment: "")
+        lblName.text = userFname.capitalized + " " + userSName.capitalized
 //
         if userImage == ""
         {
-            self.imgProfile.image = UIImage(named: "male")
+            imgProfile.image = UIImage(named: "logo")
         }
         else
         {
@@ -46,12 +46,12 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
                 }
                 else
                 {
-                    print("Error loading image Almofire")
+                    print("Error loading image Almofire \(response.error.debugDescription)")
+                    self.imgProfile.image = UIImage(named: "logo")
                 }
             }
         }
-        
-        
+
     }
 
     

@@ -22,6 +22,13 @@ class FPFCourses: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: "menuBtn"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(self.menuBtnPressed(_:)), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
         showLoading()
         grabDataFromApi {
             self.tableView.reloadData()
@@ -48,6 +55,11 @@ class FPFCourses: UITableViewController {
         
         
         
+    }
+    
+    @IBAction func menuBtnPressed(_ sender: Any)
+    {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion({})
     }
 
     // MARK: - Table view data source

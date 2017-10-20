@@ -45,7 +45,6 @@
 		B89C782D1F8FF216007861AF /* EditPasswordPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */; };
 		B8CBCD351F7D9E6900DB0FD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */; };
 		B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */; };
-		B8F3AAEE1F97A747006B3804 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3AAED1F97A747006B3804 /* MaterialView.swift */; };
 		B8F3AAF01F97A96C006B3804 /* MaterialDesginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3AAEF1F97A96C006B3804 /* MaterialDesginView.swift */; };
 		B8F3AAF21F98B826006B3804 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F3AAF11F98B826006B3804 /* Course.swift */; };
 		E607878BEC1824D763269158 /* Pods_FPF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229C386058BC7F64B4BE1A9F /* Pods_FPF.framework */; };
@@ -101,7 +100,6 @@
 		B89C782C1F8FF216007861AF /* EditPasswordPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPasswordPopUpView.swift; sourceTree = "<group>"; };
 		B8CBCD341F7D9E6900DB0FD6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B8CBCD361F7D9EDC00DB0FD6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B8F3AAED1F97A747006B3804 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		B8F3AAEF1F97A96C006B3804 /* MaterialDesginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialDesginView.swift; sourceTree = "<group>"; };
 		B8F3AAF11F98B826006B3804 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,7 +294,6 @@
 		B85F18A31F7D9AF4000263C8 /* FPF */ = {
 			isa = PBXGroup;
 			children = (
-				B8F3AAED1F97A747006B3804 /* MaterialView.swift */,
 				B8120D291F7FEDFF00839C37 /* BoilerPlate */,
 				B85F18B91F7D9BC9000263C8 /* Model */,
 				B85F18B81F7D9BBE000263C8 /* View */,
@@ -536,7 +533,6 @@
 				B840B7611F8BA98800D345BF /* ParentViewController.swift in Sources */,
 				B83836CA1F880F1A00C2852A /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */,
-				B8F3AAEE1F97A747006B3804 /* MaterialView.swift in Sources */,
 				B8120D281F7FEDC500839C37 /* AboutUsVC.swift in Sources */,
 				B82FAF611F92559D009EABC8 /* PriceTableViewCell.swift in Sources */,
 			);

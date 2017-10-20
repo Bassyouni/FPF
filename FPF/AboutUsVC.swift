@@ -16,11 +16,23 @@ class AboutUsVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //mapView.delegate = self
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: "menuBtn"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(self.menuBtnPressed(_:)), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30) //CGRectMake(0, 0, 30, 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         centerMapOnLocation()
+    }
+    
+    @IBAction func menuBtnPressed(_ sender: Any)
+    {
+        self.menuContainerViewController.toggleLeftSideMenuCompletion({})
     }
     
     func centerMapOnLocation()

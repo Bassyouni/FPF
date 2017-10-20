@@ -18,6 +18,17 @@ class SideMenuTableViewCell: UITableViewCell {
     {
         self.lblMenu.text = title
         self.imgMenu.image = UIImage(named: title)
+        if title == "Profile"
+        {
+            imgMenu.image = imgMenu.image?.withRenderingMode(.alwaysTemplate)
+            imgMenu.tintColor = UIColor.gray
+        }
+        if title == "Activity"
+        {
+            imgMenu.image = imgMenu.image?.withRenderingMode(.alwaysTemplate)
+            imgMenu.tintColor = UIColor.darkGray
+        }
+        
     }
 
 }
