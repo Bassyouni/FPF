@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		B804E9591F99115800BF2F74 /* EnrollAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = B804E9581F99115800BF2F74 /* EnrollAlert.xib */; };
 		B804E95B1F99116C00BF2F74 /* EnrollAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */; };
+		B80CA3751F9A747C005408AD /* CourseSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80CA3741F9A747C005408AD /* CourseSessions.swift */; };
+		B8112FCB1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8112FCA1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift */; };
+		B8112FCD1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8112FCC1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift */; };
+		B8112FCF1F9B523600D61CE4 /* sessionsTableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8112FCE1F9B523600D61CE4 /* sessionsTableTableViewCell.swift */; };
+		B8112FD11F9B5C5B00D61CE4 /* invitationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8112FD01F9B5C5B00D61CE4 /* invitationsTableViewCell.swift */; };
 		B8120D1B1F7DA07C00839C37 /* GameViewSB.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8120D191F7DA07C00839C37 /* GameViewSB.xib */; };
 		B8120D1C1F7DA07C00839C37 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1A1F7DA07C00839C37 /* GameView.swift */; };
 		B8120D1E1F7DA0AC00839C37 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */; };
@@ -56,6 +61,11 @@
 		689E1455127B563BCFDB663C /* Pods-FPF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPF.release.xcconfig"; path = "Pods/Target Support Files/Pods-FPF/Pods-FPF.release.xcconfig"; sourceTree = "<group>"; };
 		B804E9581F99115800BF2F74 /* EnrollAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnrollAlert.xib; sourceTree = "<group>"; };
 		B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollAlertView.swift; sourceTree = "<group>"; };
+		B80CA3741F9A747C005408AD /* CourseSessions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSessions.swift; sourceTree = "<group>"; };
+		B8112FCA1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upComingSessionTableViewCell.swift; sourceTree = "<group>"; };
+		B8112FCC1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sessionsTableCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8112FCE1F9B523600D61CE4 /* sessionsTableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sessionsTableTableViewCell.swift; sourceTree = "<group>"; };
+		B8112FD01F9B5C5B00D61CE4 /* invitationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = invitationsTableViewCell.swift; sourceTree = "<group>"; };
 		B8120D191F7DA07C00839C37 /* GameViewSB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewSB.xib; sourceTree = "<group>"; };
 		B8120D1A1F7DA07C00839C37 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		B8120D1D1F7DA0AC00839C37 /* LandingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
@@ -140,6 +150,18 @@
 				B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */,
 			);
 			name = EnrollAlert;
+			sourceTree = "<group>";
+		};
+		B80CA3731F9A743C005408AD /* CourseSeassions */ = {
+			isa = PBXGroup;
+			children = (
+				B80CA3741F9A747C005408AD /* CourseSessions.swift */,
+				B8112FCA1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift */,
+				B8112FCC1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift */,
+				B8112FCE1F9B523600D61CE4 /* sessionsTableTableViewCell.swift */,
+				B8112FD01F9B5C5B00D61CE4 /* invitationsTableViewCell.swift */,
+			);
+			name = CourseSeassions;
 			sourceTree = "<group>";
 		};
 		B8120D291F7FEDFF00839C37 /* BoilerPlate */ = {
@@ -304,6 +326,7 @@
 				B82FAF691F9336CD009EABC8 /* Profile */,
 				B82FAF671F9336A8009EABC8 /* SiideMenu */,
 				B82FAF621F933623009EABC8 /* Main */,
+				B80CA3731F9A743C005408AD /* CourseSeassions */,
 				B82FAF661F93367E009EABC8 /* FPFCourses */,
 				B82FAF6A1F9336DA009EABC8 /* CourseDetails */,
 				B82FAF651F93366C009EABC8 /* AboutUs */,
@@ -516,6 +539,8 @@
 				B85F18BE1F7D9BEC000263C8 /* LoginView.swift in Sources */,
 				B82FAF5D1F92557F009EABC8 /* EnrollTableViewCell.swift in Sources */,
 				B83836C81F880F1A00C2852A /* MFSideMenuContainerViewController.m in Sources */,
+				B8112FD11F9B5C5B00D61CE4 /* invitationsTableViewCell.swift in Sources */,
+				B80CA3751F9A747C005408AD /* CourseSessions.swift in Sources */,
 				B83836C91F880F1A00C2852A /* MFSideMenuShadow.m in Sources */,
 				B82FAF5B1F92204A009EABC8 /* CourseDetails.swift in Sources */,
 				B83836BA1F87E47B00C2852A /* SideVC.swift in Sources */,
@@ -524,12 +549,15 @@
 				B85F18C21F7D9BF7000263C8 /* LoginVC.swift in Sources */,
 				B85F18BF1F7D9BEC000263C8 /* RoundImage.swift in Sources */,
 				B8F3AAF01F97A96C006B3804 /* MaterialDesginView.swift in Sources */,
+				B8112FCF1F9B523600D61CE4 /* sessionsTableTableViewCell.swift in Sources */,
 				B85F18A51F7D9AF4000263C8 /* AppDelegate.swift in Sources */,
 				B8120D1C1F7DA07C00839C37 /* GameView.swift in Sources */,
+				B8112FCB1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift in Sources */,
 				B840B7621F8BA98800D345BF /* MBProgressHUD.m in Sources */,
 				B8120D261F7EDB7800839C37 /* ShadowView.swift in Sources */,
 				B8F3AAF21F98B826006B3804 /* Course.swift in Sources */,
 				B8120D1E1F7DA0AC00839C37 /* LandingVC.swift in Sources */,
+				B8112FCD1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift in Sources */,
 				B840B7611F8BA98800D345BF /* ParentViewController.swift in Sources */,
 				B83836CA1F880F1A00C2852A /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				B8CBCD381F7D9EDC00DB0FD6 /* Constants.swift in Sources */,
