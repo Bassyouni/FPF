@@ -9,6 +9,7 @@
 import UIKit
 
 class sessionsTableTableViewCell: UITableViewCell {
+    @IBOutlet weak var freezeModeView: UIView!
 
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftSessionsLabel: UILabel!
@@ -25,6 +26,8 @@ class sessionsTableTableViewCell: UITableViewCell {
         let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
         collectionViewHeightConstraint.constant = height
         self.setNeedsLayout()
+        
+        //freezeModeView.isHidden = false
         
     }
 

@@ -9,18 +9,19 @@
 import UIKit
 import Alamofire
 
-class FPFCourses: UITableViewController {
+class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDelegate {
     
-    // MARK: - variables
-    var hud : MBProgressHUD!
+    @IBOutlet weak var tableView: UITableView!
     
     var coursesArray = [Course]()
-    
     var isFirstTime = true
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
        let button = UIButton.init(type: .custom)
         button.setImage(UIImage.init(named: "menuBtn"), for: UIControlState.normal)
@@ -44,7 +45,15 @@ class FPFCourses: UITableViewController {
             showLoading()
             coursesArray.removeAll()
             grabDataFromApi {
-                self.tableView.reloadData()
+                
+                if self.coursesArray.count == 0
+                {
+                   self.tableView.isHidden = true
+                }
+                else
+                {
+                    self.tableView.reloadData()
+                }
                 self.hideLoading()
             }
         }
@@ -64,17 +73,17 @@ class FPFCourses: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return coursesArray.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCTableViewCell", for: indexPath) as? MainVCTableViewCell
         {
             //TODO: ask for qoute datasource!
@@ -89,7 +98,7 @@ class FPFCourses: UITableViewController {
 
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "CourseDetails", sender: coursesArray[indexPath.row])
     }
 
@@ -150,20 +159,6 @@ class FPFCourses: UITableViewController {
         }
     }
 
-    //MARK: - progress hud
-    func showLoading()
-    {
-        //        self.view.alpha = 0.5
-        //    self.view.backgroundColor = UIColor.blackColor()
-        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.mode = MBProgressHUDModeIndeterminate
-    }
-    
-    func hideLoading()
-    {
-        //        self.view.alpha = 1.0
-        self.hud.hide(true)
-    }
 
 
 }

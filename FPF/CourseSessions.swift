@@ -7,16 +7,58 @@
 //
 
 import UIKit
+import Alamofire
 
 class CourseSessions: UIViewController  {
 
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var course:Course!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+       
+    }
+    
+    // MARK: - webservice call to get data
+    func grabDataFromApi(completed:@escaping DownloadCompleted)
+    {
+        let url = URL(string: showCourseTableUrl)
+        
+        let parameters = ["User_ID": userID,"Course_ID": course.id]
+        
+        Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
+            
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String , AnyObject>
+            {
+                
+                let result = dict["response"] as? String
+                
+                if result == "Error"
+                {
+                    print("response error in courses to user !")
+                }
+                else
+                {
+                    //TODO: its obvious 
+                    
+                }
+                
+            }
+            else
+            {
+                print("error in courses \(response.error.debugDescription)")
+            }
+            completed()
+        }
+        
+        
     }
 
 

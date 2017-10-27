@@ -81,6 +81,17 @@ class MainVC: ParentViewController {
     {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({})
     }
+    
+    //MARK: -  segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CourseSessions
+        {
+            if let course = sender as? Course
+            {
+                destination.course = course
+            }
+        }
+    }
 
 }
 
@@ -109,6 +120,10 @@ extension MainVC: UITableViewDelegate , UITableViewDataSource
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "CourseSessions", sender: coursesArray[indexPath.row])
     }
     
 }
