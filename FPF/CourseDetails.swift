@@ -16,26 +16,20 @@ class CourseDetails: UITableViewController {
     var hud : MBProgressHUD!
     
     var course: Course!
+    
+    deinit {
+        print("courseDetails deinit")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.object(forKey: userID) == nil
-        {
-            //TODO: no u got to make it navigationly to go back!
-            
-            let navbar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-            self.view.addSubview(navbar)
-            let navitem = UINavigationItem(title: "Courses")
-            navbar.setItems([navitem], animated: false)
-        }
-        else
-        {
+       
             self.title = course.name
             if let topItem = self.navigationController?.navigationBar.topItem
             {
                 topItem.backBarButtonItem = UIBarButtonItem(title: "" , style: UIBarButtonItemStyle.plain, target: nil, action: nil)
             }
-        }
+        
         
     }
 

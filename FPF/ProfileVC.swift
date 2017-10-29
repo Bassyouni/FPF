@@ -65,13 +65,15 @@ class ProfileVC: ParentViewController {
     
     @IBAction func toggleEnableEdit(sender: UIButton)
     {
+
         if sender.titleLabel?.text == "Edit"
         {
             enableInteraction()
             sender.setTitle("Done", for: UIControlState.normal)
         }
-        else if nameTextField.text == "\(String(describing: UserDefaults.standard.string(forKey: userFname)?.capitalized)) \(String(describing: UserDefaults.standard.string(forKey: userSName)?.capitalized))" && mobileTextField.text == UserDefaults.standard.string(forKey: userMobile) && parentMobileTextField.text == UserDefaults.standard.string(forKey: userPMobile)
+        else if nameTextField.text == "\(UserDefaults.standard.string(forKey: userFname)!.capitalized) \(UserDefaults.standard.string(forKey: userSName)!.capitalized)" && mobileTextField.text == UserDefaults.standard.string(forKey: userMobile) && parentMobileTextField.text == UserDefaults.standard.string(forKey: userPMobile)
         {
+
             disableInteraction()
             sender.setTitle("Edit", for: UIControlState.normal)
         }
@@ -94,11 +96,11 @@ class ProfileVC: ParentViewController {
     //MARK: - init stuff
     func loadDataIntoFields()
     {
-        nameLabel.text =  "\(String(describing: UserDefaults.standard.string(forKey: userFname)?.capitalized)) \(String(describing: UserDefaults.standard.string(forKey: userSName)?.capitalized))"
+        nameLabel.text =  "\(UserDefaults.standard.string(forKey: userFname)!.capitalized) \(UserDefaults.standard.string(forKey: userSName)!.capitalized)"
         mobileTextField.text = UserDefaults.standard.string(forKey: userMobile)
         parentMobileTextField.text = UserDefaults.standard.string(forKey: userPMobile)
         idLAbel.text = UserDefaults.standard.string(forKey: userID)
-        ageLabel.text = "\(String(describing: UserDefaults.standard.object(forKey: userAge)))"
+        ageLabel.text = "\(UserDefaults.standard.object(forKey: userAge)!)"
         let url = URL(string: UserDefaults.standard.string(forKey: userImage)!)!
         Alamofire.request(url).responseData { response in
             if let data = response.result.value
@@ -194,7 +196,7 @@ class ProfileVC: ParentViewController {
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
-                    self.nameLabel.text =  "\(String(describing: UserDefaults.standard.string(forKey: userFname)?.capitalized)) \(String(describing: UserDefaults.standard.string(forKey: userSName)?.capitalized))"
+                    self.nameLabel.text =  "\(UserDefaults.standard.string(forKey: userFname)!.capitalized) \(UserDefaults.standard.string(forKey: userSName)!.capitalized)"
                     self.mobileTextField.text = UserDefaults.standard.string(forKey: userMobile)
                     self.parentMobileTextField.text = UserDefaults.standard.string(forKey: userPMobile)
 

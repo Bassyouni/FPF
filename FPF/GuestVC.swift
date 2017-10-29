@@ -17,8 +17,17 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var conatinorView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    deinit {
+        print("GuestVc deinit")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        let backBtn = UIBarButtonItem(title: "Login", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.backBtnPressed))
+//        navigationItem.leftBarButtonItem = backBtn
+
         
         aboutUsVC = storyboard?.instantiateViewController(withIdentifier: "AboutUsVC")
         fpfCoursesVC = storyboard?.instantiateViewController(withIdentifier: "FPFCoursesGuest")
@@ -111,4 +120,7 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    @IBAction func backBtnPressed(sender_: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
 }

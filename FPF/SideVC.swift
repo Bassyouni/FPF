@@ -121,6 +121,11 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
         }
         else if indexPath.row == 4
         {
+            //TODO: rate us
+
+        }
+        else if indexPath.row == 5
+        {
             UserDefaults.standard.removeObject(forKey: userID)
             UserDefaults.standard.removeObject(forKey: userFname)
             UserDefaults.standard.removeObject(forKey: userSName)
@@ -133,7 +138,6 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
             let delegate = UIApplication.shared.delegate as? AppDelegate
             let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
             delegate?.window?.rootViewController = loginVC
-
         }
         
         self.menuContainerViewController.toggleLeftSideMenuCompletion({})

@@ -12,6 +12,10 @@ import MapKit
 class AboutUsVC: UIViewController{
     
      @IBOutlet weak var mapView: MKMapView!
+    
+    deinit {
+        print("aboutusVC deinit")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

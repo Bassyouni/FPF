@@ -17,6 +17,10 @@ class FPFCourses: ParentViewController {
     //MARK: - variables
     var coursesArray = [Course]()
     var isFirstTime = true
+    
+    deinit {
+        print("fpfCourses deinit")
+    }
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -116,6 +120,7 @@ class FPFCourses: ParentViewController {
                     {
                         if let courseDict = dict["\(i)"] as? Dictionary<String, String>
                         {
+                            print("xxx: ",courseDict)
                             let course = Course()
                             course.populateClassFromApi(dict: courseDict)
                             self.coursesArray.append(course)

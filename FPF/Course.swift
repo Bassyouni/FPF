@@ -25,7 +25,7 @@ class Course
     private var _pricePerMonth8Sessions: String!
     private var _pricePerMonth12Sessions: String!
     
-    let quotes = ["1":"Be the movement" , "2":"Mixed Martial Art" , "3": "Push beyond your limits"]
+    let quotes = ["1":"Be the movement" , "2":"Mixed Martial Art" , "3": "Push beyond your limits" , "4":"Free"]
     
     init() {
         _id = ""
