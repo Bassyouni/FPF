@@ -9,17 +9,19 @@
 import UIKit
 import Alamofire
 
-class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDelegate {
+class FPFCourses: ParentViewController {
     
+    //MARK: - iboutles
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: - variables
     var coursesArray = [Course]()
     var isFirstTime = true
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -31,16 +33,20 @@ class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDeleg
         self.navigationItem.leftBarButtonItem = barButton
         
         showLoading()
+        
+
         grabDataFromApi {
             self.tableView.reloadData()
             self.hideLoading()
         }
+    
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !isFirstTime
+        if !isFirstTime && UserDefaults.standard.object(forKey: userID) != nil
         {
             showLoading()
             coursesArray.removeAll()
@@ -57,7 +63,7 @@ class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDeleg
                 self.hideLoading()
             }
         }
-        else
+        else if UserDefaults.standard.object(forKey: userID) != nil
         {
             isFirstTime = false
         }
@@ -66,48 +72,30 @@ class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDeleg
         
     }
     
+    //MARK: - ibactions
     @IBAction func menuBtnPressed(_ sender: Any)
     {
         self.menuContainerViewController.toggleLeftSideMenuCompletion({})
     }
 
-    // MARK: - Table view data source
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return coursesArray.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCTableViewCell", for: indexPath) as? MainVCTableViewCell
-        {
-            //TODO: ask for qoute datasource!
-            cell.configureCell(course: coursesArray[indexPath.row])
-            
-            return cell
-        }
-        else
-        {
-            return UITableViewCell()
-        }
-
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "CourseDetails", sender: coursesArray[indexPath.row])
-    }
-
     // MARK: - webservice call to get data
     func grabDataFromApi(completed:@escaping DownloadCompleted)
     {
-        let url = URL(string: showCoursesToUserUrl)
+        let url: URL!
         
-        let parameters = ["User_ID": userID]
+        let parameters: Dictionary<String, String>!
+        
+        if UserDefaults.standard.object(forKey: userID) == nil
+        {
+            parameters = [:]
+            url = URL(string: showCoursesUrl)
+        }
+        else
+        {
+            parameters = ["User_ID": UserDefaults.standard.string(forKey: userID)!]
+            url = URL(string: showCoursesToUserUrl)
+        }
+        
         
         Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
             
@@ -148,6 +136,7 @@ class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDeleg
         
     }
     
+    
     // MARK: - segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? CourseDetails
@@ -157,8 +146,45 @@ class FPFCourses: ParentViewController, UITableViewDataSource , UITableViewDeleg
                 destination.course = course
             }
         }
+        
     }
 
 
 
 }
+
+    // MARK: - Table view data source
+extension FPFCourses: UITableViewDelegate , UITableViewDataSource
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return coursesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCTableViewCell", for: indexPath) as? MainVCTableViewCell
+        {
+            //TODO: ask for qoute datasource!
+            cell.configureCell(course: coursesArray[indexPath.row])
+            
+            return cell
+        }
+        else
+        {
+            return UITableViewCell()
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "CourseDetails", sender: coursesArray[indexPath.row])
+        
+    }
+
+}
+

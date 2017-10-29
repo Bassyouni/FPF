@@ -28,6 +28,8 @@ class LoginVC: ParentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO: check user defaults to autlo login here and in landing
+        
         mobileNumberTxtField.tag = 1
         passwordTxtField.tag = 2
         mobileNumberTxtField.delegate = self
@@ -92,34 +94,42 @@ class LoginVC: ParentViewController {
                     {
                         if let age = dic["Age"] as? Int
                         {
-                            userAge = age
+//                            userAge = age
+                            UserDefaults.standard.set(age, forKey: userAge)
                         }
                         if let id = dic["ID"] as? String
                         {
-                            userID = id
+//                            userID = id
+                            UserDefaults.standard.set(id, forKey: userID)
                         }
                         if let fName = dic["FName"] as? String
                         {
-                            userFname = fName
+//                            userFname = fName
+                            UserDefaults.standard.set(fName, forKey: userFname)
                         }
                         if let sName = dic["SName"] as? String
                         {
-                            userSName = sName
+//                            userSName = sName
+                            UserDefaults.standard.set(sName, forKey: userSName)
                         }
                         if let image = dic["Image"] as? String
                         {
-                            userImage = image
+//                            userImage = image
+                            UserDefaults.standard.set(image, forKey: userImage)
                         }
                         if let gender = dic["gender"] as? String
                         {
-                            userGender = gender
+//                            userGender = gender
+                            UserDefaults.standard.set(gender, forKey: userGender)
                         }
                         if let pMobile = dic["P_Mobile"] as? String
                         {
-                            userPMobile = pMobile
+//                            userPMobile = pMobile
+                            UserDefaults.standard.set(pMobile, forKey: userPMobile)
                         }
                         
-                        userMobile = parameters["Mobile"]!
+//                        userMobile = parameters["Mobile"]!
+                        UserDefaults.standard.set(parameters["Mobile"]!, forKey: userMobile)
                         
                         self.goToMainVC()
                     }
@@ -139,7 +149,12 @@ class LoginVC: ParentViewController {
         
     }
 
-    //MARK: - segue to mainVC
+    @IBAction func continueAsGuestBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "GuestVC", sender: nil)
+    }
+    
+    
+    //MARK: - segue
     private func goToMainVC()
     {
         let delegate = UIApplication.shared.delegate as? AppDelegate

@@ -29,7 +29,7 @@ class CourseSessions: UIViewController  {
     {
         let url = URL(string: showCourseTableUrl)
         
-        let parameters = ["User_ID": userID,"Course_ID": course.id]
+        let parameters = ["User_ID": UserDefaults.standard.string(forKey: userID)!,"Course_ID": course.id]
         
         Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
             

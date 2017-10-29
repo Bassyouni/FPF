@@ -17,8 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         FirebaseApp.configure()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialVC: UIViewController!
+        
+        if (UserDefaults.standard.object(forKey: "isFirstTime") == nil)
+        {
+            UserDefaults.standard.set("true", forKey: "isFirstTime")
+            initialVC = storyboard.instantiateViewController(withIdentifier: "LandingVC")
+        }
+        else if UserDefaults.standard.object(forKey: userID) != nil
+        {
+
+            let mainVCNav = storyboard.instantiateViewController(withIdentifier: "MainVC")
+            let sideMenuVC = storyboard.instantiateViewController(withIdentifier: "SideVC")
+            
+            initialVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav ,leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
+        }
+        else
+        {
+            initialVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+        }
+        self.window?.rootViewController = initialVC
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

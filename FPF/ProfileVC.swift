@@ -70,7 +70,7 @@ class ProfileVC: ParentViewController {
             enableInteraction()
             sender.setTitle("Done", for: UIControlState.normal)
         }
-        else if nameTextField.text == "\(userFname.capitalized) \(userSName.capitalized)" && mobileTextField.text == userMobile && parentMobileTextField.text == userPMobile
+        else if nameTextField.text == "\(String(describing: UserDefaults.standard.string(forKey: userFname)?.capitalized)) \(String(describing: UserDefaults.standard.string(forKey: userSName)?.capitalized))" && mobileTextField.text == UserDefaults.standard.string(forKey: userMobile) && parentMobileTextField.text == UserDefaults.standard.string(forKey: userPMobile)
         {
             disableInteraction()
             sender.setTitle("Edit", for: UIControlState.normal)
@@ -94,12 +94,12 @@ class ProfileVC: ParentViewController {
     //MARK: - init stuff
     func loadDataIntoFields()
     {
-        nameLabel.text =  "\(userFname.capitalized) \(userSName.capitalized)"
-        mobileTextField.text = userMobile
-        parentMobileTextField.text = userPMobile
-        idLAbel.text = userID
-        ageLabel.text = "\(userAge)"
-        let url = URL(string: userImage)!
+        nameLabel.text =  "\(String(describing: UserDefaults.standard.string(forKey: userFname)?.capitalized)) \(String(describing: UserDefaults.standard.string(forKey: userSName)?.capitalized))"
+        mobileTextField.text = UserDefaults.standard.string(forKey: userMobile)
+        parentMobileTextField.text = UserDefaults.standard.string(forKey: userPMobile)
+        idLAbel.text = UserDefaults.standard.string(forKey: userID)
+        ageLabel.text = "\(String(describing: UserDefaults.standard.object(forKey: userAge)))"
+        let url = URL(string: UserDefaults.standard.string(forKey: userImage)!)!
         Alamofire.request(url).responseData { response in
             if let data = response.result.value
             {
@@ -144,7 +144,7 @@ class ProfileVC: ParentViewController {
     {
         if nameTextField.text != "\(userFname.capitalized) \(userSName.capitalized)" || mobileTextField.text != userMobile || parentMobileTextField.text != userPMobile
         {
-            let paramters = ["ID": userID , "Name" : nameTextField.text! , "Mobile": mobileTextField.text! , "P_Mobile": parentMobileTextField.text!]
+            let paramters = ["ID": UserDefaults.standard.string(forKey: userID)! , "Name" : nameTextField.text! , "Mobile": mobileTextField.text! , "P_Mobile": parentMobileTextField.text!]
             
             let url = URL(string: editUserInfoUrl)!
             
@@ -175,10 +175,14 @@ class ProfileVC: ParentViewController {
                         let fName    = fullNameArr[0]
                         let sName = fullNameArr[1]
                         
-                        userFname = fName
-                        userSName = sName
-                        userMobile = paramters["Mobile"]!
-                        userPMobile = paramters["P_Mobile"]!
+//                        userFname = fName
+//                        userSName = sName
+//                        userMobile = paramters["Mobile"]!
+//                        userPMobile = paramters["P_Mobile"]!
+                        UserDefaults.standard.set(fName, forKey: userFname)
+                        UserDefaults.standard.set(sName, forKey: userSName)
+                        UserDefaults.standard.set(paramters["Mobile"]!, forKey: userMobile)
+                        UserDefaults.standard.set(paramters["P_Mobile"]!, forKey: userPMobile)
                     }
                 }
                 else
@@ -190,9 +194,9 @@ class ProfileVC: ParentViewController {
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
-                    self.nameLabel.text =  "\(userFname.capitalized) \(userSName.capitalized)"
-                    self.mobileTextField.text = userMobile
-                    self.parentMobileTextField.text = userPMobile
+                    self.nameLabel.text =  "\(String(describing: UserDefaults.standard.string(forKey: userFname)?.capitalized)) \(String(describing: UserDefaults.standard.string(forKey: userSName)?.capitalized))"
+                    self.mobileTextField.text = UserDefaults.standard.string(forKey: userMobile)
+                    self.parentMobileTextField.text = UserDefaults.standard.string(forKey: userPMobile)
 
                 }
              self.hideLoading()

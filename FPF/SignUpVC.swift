@@ -147,17 +147,23 @@ class SignUpVC: ParentViewController {
                 {
                     if let ID = dic["ID"] as? String
                     {
-                        userID = ID
+//                        userID = ID
+                        UserDefaults.standard.set(ID, forKey: userID)
                     }
                     if let age = dic["Age"] as? Int
                     {
-                        userAge = age
+//                        userAge = age
+                        UserDefaults.standard.set(age, forKey: userAge)
                     }
                     
-                    userFname = parameters["FName"]!
-                    userSName = parameters["SName"]!
-                    userMobile = parameters["Mobile"]!
-                    userImage = parameters["Image"]!
+//                    userFname = parameters["FName"]!
+//                    userSName = parameters["SName"]!
+//                    userMobile = parameters["Mobile"]!
+//                    userImage = parameters["Image"]!
+                    UserDefaults.standard.set(parameters["FName"]!, forKey: userFname)
+                    UserDefaults.standard.set(parameters["SName"]!, forKey: userSName)
+                    UserDefaults.standard.set(parameters["Mobile"]!, forKey: userMobile)
+                    UserDefaults.standard.set(parameters["Image"]!, forKey: userImage)
                     
                     //Showing Alert
                     self.showAlert()

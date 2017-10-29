@@ -34,7 +34,7 @@ class MainVC: ParentViewController {
     {
         let url = URL(string: showMyCoursesUrl)
         
-        let parameters = ["User_ID": userID]
+        let parameters = ["User_ID": UserDefaults.standard.string(forKey: userID)!]
         
         Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
             

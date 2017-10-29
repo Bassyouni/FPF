@@ -42,6 +42,15 @@ class LandingVC: UIViewController, UIScrollViewDelegate {
         loadGamesInScrollView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if UserDefaults.standard.object(forKey: userID) != nil
+        {
+            performSegue(withIdentifier: "LoginVC", sender: nil)
+        }
+    }
+    
     //MARK: - loadGamesInScrollView
     func loadGamesInScrollView()
     {

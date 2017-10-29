@@ -21,7 +21,7 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         aboutUsVC = storyboard?.instantiateViewController(withIdentifier: "AboutUsVC")
-        fpfCoursesVC = storyboard?.instantiateViewController(withIdentifier: "FPFCourses")
+        fpfCoursesVC = storyboard?.instantiateViewController(withIdentifier: "FPFCoursesGuest")
         
         scrollView.delegate = self
         scrollView.contentSize = CGSize(width:(self.view.bounds.size.width * 2) , height: 1)

@@ -37,7 +37,7 @@ class EditPasswordPopUpView: UIView {
     
     func callWebServiceForEditPassword()
     {
-        let paramters = ["ID": userID , "Password": passwordTextField.text!]
+        let paramters = ["ID": UserDefaults.standard.string(forKey: userID)! , "Password": passwordTextField.text!]
         
         let url = URL(string: editPasswordUrl)
         

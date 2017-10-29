@@ -19,11 +19,24 @@ class CourseDetails: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = course.name
-        if let topItem = self.navigationController?.navigationBar.topItem
+        if UserDefaults.standard.object(forKey: userID) == nil
         {
-            topItem.backBarButtonItem = UIBarButtonItem(title: "" , style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+            //TODO: no u got to make it navigationly to go back!
+            
+            let navbar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
+            self.view.addSubview(navbar)
+            let navitem = UINavigationItem(title: "Courses")
+            navbar.setItems([navitem], animated: false)
         }
+        else
+        {
+            self.title = course.name
+            if let topItem = self.navigationController?.navigationBar.topItem
+            {
+                topItem.backBarButtonItem = UIBarButtonItem(title: "" , style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+            }
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -176,7 +189,7 @@ class CourseDetails: UITableViewController {
     {
         let url = URL(string: addToMyCoursesUrl)
         
-        let parameters = ["User_ID": userID , "Course_ID": course.id , "type": type]
+        let parameters = ["User_ID": UserDefaults.standard.string(forKey: userID)! , "Course_ID": course.id , "type": type]
         
         self.showLoading()
         Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in

@@ -29,15 +29,15 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
 
         // set name
         lblWelcome.text = NSLocalizedString("Welcome", comment: "")
-        lblName.text = userFname.capitalized + " " + userSName.capitalized
+        lblName.text = (UserDefaults.standard.string(forKey: userFname)?.capitalized)! + " " + (UserDefaults.standard.string(forKey: userSName)?.capitalized)!
 //
-        if userImage == ""
+        if UserDefaults.standard.string(forKey: userImage) == nil
         {
             imgProfile.image = UIImage(named: "logo")
         }
         else
         {
-            let url = URL(string: userImage)!
+            let url = URL(string: UserDefaults.standard.string(forKey: userImage)!)!
             Alamofire.request(url).responseData { response in
                 if let data = response.result.value
                 {
@@ -121,7 +121,19 @@ class SideVC: UIViewController , UITableViewDelegate , UITableViewDataSource{
         }
         else if indexPath.row == 4
         {
+            UserDefaults.standard.removeObject(forKey: userID)
+            UserDefaults.standard.removeObject(forKey: userFname)
+            UserDefaults.standard.removeObject(forKey: userSName)
+            UserDefaults.standard.removeObject(forKey: userMobile)
+            UserDefaults.standard.removeObject(forKey: userPMobile)
+            UserDefaults.standard.removeObject(forKey: userImage)
+            UserDefaults.standard.removeObject(forKey: userAge)
+            UserDefaults.standard.removeObject(forKey: userGender)
             
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+            delegate?.window?.rootViewController = loginVC
+
         }
         
         self.menuContainerViewController.toggleLeftSideMenuCompletion({})
