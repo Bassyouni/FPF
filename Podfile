@@ -11,4 +11,5 @@ target 'FPF' do
     pod ‘DLRadioButton', '~> 1.4'
     pod ‘Firebase/Core’
     pod ‘Firebase/Storage’
+    pod 'IHKeyboardAvoiding'
 end

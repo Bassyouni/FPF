@@ -28,6 +28,12 @@ class CourseSessions: ParentViewController  {
         super.viewDidLoad()
         state = "none"
         type = "session"
+        
+        self.title = course.name
+        if let topItem = self.navigationController?.navigationBar.topItem
+        {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "" , style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        }
 
         showLoading()
         grabDataFromApi {
@@ -41,7 +47,10 @@ class CourseSessions: ParentViewController  {
             self.tableView.reloadData()
             self.hideLoading()
         }
-        
+        //remove alert when changing password with double tap
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.removeAlert))
+        tap.numberOfTapsRequired = 2
+        self.navigationController?.view.addGestureRecognizer(tap)
        
     }
     
@@ -111,7 +120,67 @@ class CourseSessions: ParentViewController  {
         
     }
 
-
+    func showAlertForInvite(_ sender: UIButton)
+    {
+        if sender.tag == 200
+        {
+            if let alert = Bundle.main.loadNibNamed("PasswordPopUp", owner: self, options: nil)?.last as? EditPasswordPopUpView
+            {
+//                self.alertBackView.isHidden = false
+                let blackView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                self.navigationController?.view.addSubview(blackView)
+                blackView.tag = 500
+                blackView.backgroundColor = UIColor.black
+                blackView.alpha = 0.400000005960464
+                blackView.translatesAutoresizingMaskIntoConstraints = false
+                
+                
+                let leadingConstraint = NSLayoutConstraint(item: blackView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+                let trailingConstraint = NSLayoutConstraint(item: blackView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+                let topConstraint = NSLayoutConstraint(item: blackView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+                let bottomConstraint = NSLayoutConstraint(item: blackView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+                self.navigationController?.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
+                
+                
+                self.navigationController?.view.addSubview(alert)
+                alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+                alert.tag = 100
+                alert.title.text = "Invitation"
+                alert.passwordTextField.placeholder = "Friend's Name"
+                alert.confirmPasswordTextField.placeholder = "Friend's Mobile Number"
+                alert.confirmPasswordTextField.keyboardType = .numberPad
+                alert.passwordTextField.isSecureTextEntry = false
+                alert.confirmPasswordTextField.isSecureTextEntry = false
+                alert.doneBtn.addTarget(self, action: #selector(self.alertDonePressed(_:)), for: UIControlEvents.touchUpInside)
+                alert.doneBtn.removeTarget(EditPasswordPopUpView.self, action: #selector(EditPasswordPopUpView.DoneBtnPressed(_:)) , for: UIControlEvents.touchUpInside)
+                self.navigationController?.view.bringSubview(toFront: alert)
+                alert.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
+    func alertDonePressed(_ sender: UIButton)
+    {
+        print("xxxx")
+    }
+    
+    @objc private func removeAlert()
+    {
+        if let alert = self.navigationController?.view.viewWithTag(100)
+        {
+            alert.removeFromSuperview()
+            if let back = self.navigationController?.view.viewWithTag(500)
+            {
+                back.removeFromSuperview()
+            }
+        }
+    }
+    
+    //MARK: - keyboardDissmissOnTouch
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        
+    }
 }
 
 // MARK: - table data source
@@ -149,6 +218,8 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
         {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "invitationsTableViewCell", for: indexPath) as? invitationsTableViewCell
             {
+                cell.inviteBtn.tag = 200
+                cell.inviteBtn.addTarget(self, action: #selector(self.showAlertForInvite(_:)), for: UIControlEvents.touchUpInside)
                 return cell
             }
         }
@@ -156,6 +227,7 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
         {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTableViewCell", for: indexPath) as? PriceTableViewCell
             {
+                cell.configureCell(course: course)
                 return cell
             }
         }

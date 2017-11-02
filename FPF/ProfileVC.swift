@@ -16,6 +16,7 @@ class ProfileVC: ParentViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var idLAbel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var alertBackView: UIView!
     
     @IBOutlet weak var nameTextField: JVFloatLabeledTextField!
     @IBOutlet weak var mobileTextField: JVFloatLabeledTextField!
@@ -44,16 +45,22 @@ class ProfileVC: ParentViewController {
         
         loadDataIntoFields()
         
+        //remove alert when changing password with double tap
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.removeAlert))
+        tap.numberOfTapsRequired = 2
+        self.view.addGestureRecognizer(tap)
+        
 
     }
-    
+
     //MARK: - ibactions
     @IBAction func changePasswordBtnPressed(_ sender: Any) {
         if let alert = Bundle.main.loadNibNamed("PasswordPopUp", owner: self, options: nil)?.last as? EditPasswordPopUpView
         {
+            self.alertBackView.isHidden = false
             self.view.addSubview(alert)
             alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
-            
+            alert.tag = 100
             self.view.bringSubview(toFront: alert)
             alert.isUserInteractionEnabled = true
         }
@@ -264,6 +271,15 @@ class ProfileVC: ParentViewController {
         
         return true
     }
+    
+    @objc private func removeAlert()
+    {
+        if let alert = self.view.viewWithTag(100)
+        {
+            alert.removeFromSuperview()
+            alertBackView.isHidden = true
+        }
+    }
 
 }
 
@@ -335,5 +351,6 @@ extension ProfileVC: UITextFieldDelegate
     //MARK: - keyboardDissmissOnTouch
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+        
     }
 }

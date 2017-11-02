@@ -23,6 +23,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - IHKeyboardAvoiding (4.0)
   - JVFloatLabeledTextField (1.2.0)
 
 DEPENDENCIES:
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - DLRadioButton (~> 1.4)
   - Firebase/Core
   - Firebase/Storage
+  - IHKeyboardAvoiding
   - JVFloatLabeledTextField
 
 SPEC CHECKSUMS:
@@ -42,8 +44,9 @@ SPEC CHECKSUMS:
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  IHKeyboardAvoiding: d1063551a2bed47cdbeab255e3aa5d7847d7efa8
   JVFloatLabeledTextField: 96c0c1b6739001801340d25b86aff990d67c4181
 
-PODFILE CHECKSUM: 780f9a3d453c349c90cb1f5540a8134ac376fb53
+PODFILE CHECKSUM: 380316d42ab558bf60b911273d6b3ee4f740a0c1
 
 COCOAPODS: 1.2.1

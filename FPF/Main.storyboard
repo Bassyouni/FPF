@@ -2195,6 +2195,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="Khh-Dx-P3B" secondAttribute="trailing" id="eUW-uN-eng"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="inviteBtn" destination="z5y-Pj-jBH" id="qZG-CD-8UZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceTableViewCell" rowHeight="246" id="OPt-7X-9ss" customClass="PriceTableViewCell" customModule="FPF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="707" width="375" height="246"/>
@@ -2770,6 +2773,10 @@
                                     <constraint firstItem="yAr-pA-NnS" firstAttribute="top" secondItem="6Gd-Po-rUb" secondAttribute="top" constant="20" id="vxQ-Re-W4V"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" alpha="0.40000000596046398" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-T4-oG0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2781,13 +2788,18 @@
                             <constraint firstItem="6Gd-Po-rUb" firstAttribute="leading" secondItem="Xzr-hV-0cE" secondAttribute="leading" id="K7d-yO-Ua8"/>
                             <constraint firstItem="gRs-Yw-ihB" firstAttribute="leading" secondItem="Xzr-hV-0cE" secondAttribute="leading" id="MEN-Yh-ykn"/>
                             <constraint firstAttribute="trailing" secondItem="6Gd-Po-rUb" secondAttribute="trailing" id="OL5-Qc-lwb"/>
+                            <constraint firstItem="XNY-T4-oG0" firstAttribute="leading" secondItem="Xzr-hV-0cE" secondAttribute="leading" id="j5I-u6-GHd"/>
+                            <constraint firstItem="2hV-op-bNw" firstAttribute="top" secondItem="XNY-T4-oG0" secondAttribute="bottom" id="jlr-Qe-8Oq"/>
                             <constraint firstItem="6Gd-Po-rUb" firstAttribute="top" secondItem="Xzr-hV-0cE" secondAttribute="top" id="mu7-vf-KxK"/>
                             <constraint firstItem="awn-87-JUJ" firstAttribute="width" secondItem="Xzr-hV-0cE" secondAttribute="width" id="nQc-48-y3O"/>
+                            <constraint firstAttribute="trailing" secondItem="XNY-T4-oG0" secondAttribute="trailing" id="pdH-uD-KGf"/>
                             <constraint firstItem="gRs-Yw-ihB" firstAttribute="top" secondItem="gLj-dS-49v" secondAttribute="bottom" id="qpQ-nb-pk0"/>
+                            <constraint firstItem="XNY-T4-oG0" firstAttribute="top" secondItem="Xzr-hV-0cE" secondAttribute="top" id="uza-LG-DaR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ageLabel" destination="cEW-gM-bxU" id="QPk-n3-PjS"/>
+                        <outlet property="alertBackView" destination="XNY-T4-oG0" id="LB0-kF-cQq"/>
                         <outlet property="changePasswordBtn" destination="B6C-Su-GwN" id="wm9-O4-pmh"/>
                         <outlet property="idLAbel" destination="QWk-ws-RVs" id="yAy-3o-7uB"/>
                         <outlet property="mobileBorderConstant" destination="7bU-H2-3fd" id="kaN-q8-aGQ"/>

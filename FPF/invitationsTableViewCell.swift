@@ -10,6 +10,7 @@ import UIKit
 
 class invitationsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var inviteBtn: LoginButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +21,7 @@ class invitationsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }
