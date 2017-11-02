@@ -19,6 +19,23 @@ class sessionsTableCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func configureCell(session: String)
+    {
+        self.isHidden = false
+        if session == "none"
+        {
+            self.isHidden = true
+        }
+        else if session == "false"
+        {
+            theLineImageView.isHidden = true
+        }
+        else
+        {
+            theLineImageView.isHidden = false
+        }
+    }
+    
     
     
     

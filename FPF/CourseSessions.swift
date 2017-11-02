@@ -9,17 +9,38 @@
 import UIKit
 import Alamofire
 
-class CourseSessions: UIViewController  {
+class CourseSessions: ParentViewController  {
 
-    
+    // MARK: - iboutlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - variables
     var course:Course!
+    var state:String!
+    var type:String!
+    var seassionsArray = [String]()
+    var invitationNameArray = [String]()
+    var invitationNumberArray = [String]()
+    var isFirstTime = true
+    
+    // MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
+        state = "none"
+        type = "session"
 
-        tableView.delegate = self
-        tableView.dataSource = self
+        showLoading()
+        grabDataFromApi {
+            if self.isFirstTime
+            {
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
+                self.isFirstTime = false
+            }
+
+            self.tableView.reloadData()
+            self.hideLoading()
+        }
         
        
     }
@@ -46,8 +67,37 @@ class CourseSessions: UIViewController  {
                 }
                 else
                 {
-                    //TODO: its obvious 
-                    
+                    //TODO: its obvious ,invitation
+                    if let state = dict["state"] as? String
+                    {
+                        self.state = state
+                    }
+                    if let type = dict["type"] as? String
+                    {
+                        self.type = type
+                    }
+                    for i in 1...12
+                    {
+                        let sessionName = "session\(i)"
+                        if let session = dict[sessionName] as? String
+                        {
+                            self.seassionsArray.append(session)
+                        }
+                    }
+                    for i in 1...3
+                    {
+                        let inviteName = "Invitation\(i)_name"
+                        let inviteNum = "Invitation\(i)_number"
+                        
+                        if let invitationName = dict[inviteName] as? String
+                        {
+                            self.invitationNameArray.append(invitationName)
+                        }
+                        if let invitationNumber = dict[inviteNum] as? String
+                        {
+                            self.invitationNumberArray.append(invitationNumber)
+                        }
+                    }
                 }
                 
             }
@@ -62,9 +112,9 @@ class CourseSessions: UIViewController  {
     }
 
 
-
 }
 
+// MARK: - table data source
 extension CourseSessions: UITableViewDelegate , UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,6 +122,10 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 && type == "session"
+        {
+            return 0
+        }
         return 1
     }
     
@@ -87,6 +141,7 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
         {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "sessionsTableTableViewCell", for: indexPath) as? sessionsTableTableViewCell
             {
+                cell.configureCell(state: state, sessions: seassionsArray, type: type)
                 return cell
             }
         }
@@ -110,12 +165,17 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //TODO: depend on type make it short or long!
         if indexPath.section == 0
         {
             return 125
         }
         else if indexPath.section == 1
         {
+            if type == "8_session"
+            {
+                return (424 - 120)
+            }
             return (424 - 40)
         }
         else if indexPath.section == 2

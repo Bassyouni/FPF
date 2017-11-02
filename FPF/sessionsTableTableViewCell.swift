@@ -15,6 +15,9 @@ class sessionsTableTableViewCell: UITableViewCell {
     @IBOutlet weak var leftSessionsLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var seassionsArray = [String]()
+    var type: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self
@@ -22,19 +25,54 @@ class sessionsTableTableViewCell: UITableViewCell {
         
         /* make collection view shrink based on content size , by the next 3 lines of code , and also setting its height constraint priority to 999 source : https://stackoverflow.com/questions/42437966/how-to-adjust-height-of-uicollectionview-to-be-the-height
          */
+//        
+//        let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
+//        collectionViewHeightConstraint.constant = height
+//        self.setNeedsLayout()
         
-        let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
-        collectionViewHeightConstraint.constant = height
-        self.setNeedsLayout()
-        
-        //freezeModeView.isHidden = false
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func configureCell(state: String , sessions: [String], type: String)
+    {
+        if state == "none"
+        {
+            freezeModeView.isHidden = false
+        }
+        else if state == "active"
+        {
+            freezeModeView.isHidden = true
+        }
+        
+        
+        self.type = type
+        seassionsArray = sessions
+        
+        var count = 0
+        if type == "8_session"
+        {
+            count = 7
+        }
+        else
+        {
+            count = 11
+        }
+        var leftCount = 0
+        for i in (0...count).reversed()
+        {
+            if seassionsArray[i] == "false"
+            {
+                leftCount += 1
+            }
+            else
+            {
+                break
+            }
+        }
 
-        // Configure the view for the selected state
+        self.leftSessionsLabel.text = "You have \(leftCount) session(s) left."
+        
+        self.collectionView.reloadData()
     }
 
 }
@@ -46,14 +84,26 @@ extension sessionsTableTableViewCell: UICollectionViewDelegate , UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 8
+        if type == "12_session"
+        {
+            return 12
+        }
+        else if type == "8_session"
+        {
+            return 8
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sessionsTableCollectionViewCell", for: indexPath) as? sessionsTableCollectionViewCell
         {
+            let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
+            collectionViewHeightConstraint.constant = height
+            self.setNeedsLayout()
+
+            cell.configureCell(session: seassionsArray[indexPath.row])
             return cell
         }
         else { return UICollectionViewCell() }

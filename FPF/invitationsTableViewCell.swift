@@ -14,7 +14,7 @@ class invitationsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    //TODO: what the hell happens here?
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
