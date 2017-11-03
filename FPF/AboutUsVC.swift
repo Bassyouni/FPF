@@ -62,6 +62,13 @@ class AboutUsVC: UIViewController{
 
     }
     
+    @IBAction func facebookBtnPressed(_ sender: Any) {
+        UIApplication.tryURL(urls: ["fb://facebook.com/fpfegypt","https://www.facebook.com/fpfegypt"])
+    }
+    
+    @IBAction func telephoneBtnPressed(_ sender: Any) {
+    }
+    
     //TODO: phone and facebook on about use implimntaion
 
     

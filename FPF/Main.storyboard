@@ -1535,6 +1535,9 @@
                                             <constraint firstAttribute="height" constant="25" id="Mus-vK-ZzF"/>
                                         </constraints>
                                         <state key="normal" image="facebook_icon"/>
+                                        <connections>
+                                            <action selector="facebookBtnPressed:" destination="EM5-Pl-N5I" eventType="touchUpInside" id="9fh-kC-etS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E29-d2-5tH">
                                         <rect key="frame" x="250" y="215" width="25" height="25"/>
@@ -1543,6 +1546,9 @@
                                             <constraint firstAttribute="width" constant="25" id="fdw-18-fK6"/>
                                         </constraints>
                                         <state key="normal" image="phone-call-button"/>
+                                        <connections>
+                                            <action selector="telephoneBtnPressed:" destination="EM5-Pl-N5I" eventType="touchUpInside" id="FGY-44-2PG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
