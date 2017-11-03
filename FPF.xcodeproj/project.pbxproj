@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B804E9591F99115800BF2F74 /* EnrollAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = B804E9581F99115800BF2F74 /* EnrollAlert.xib */; };
 		B804E95B1F99116C00BF2F74 /* EnrollAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */; };
+		B808DE331FABF15800E67966 /* GuestAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = B808DE321FABF15800E67966 /* GuestAlert.xib */; };
+		B808DE351FABF17500E67966 /* GuestAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808DE341FABF17500E67966 /* GuestAlertView.swift */; };
 		B80CA3751F9A747C005408AD /* CourseSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80CA3741F9A747C005408AD /* CourseSessions.swift */; };
 		B8112FCB1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8112FCA1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift */; };
 		B8112FCD1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8112FCC1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift */; };
@@ -61,6 +63,8 @@
 		689E1455127B563BCFDB663C /* Pods-FPF.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPF.release.xcconfig"; path = "Pods/Target Support Files/Pods-FPF/Pods-FPF.release.xcconfig"; sourceTree = "<group>"; };
 		B804E9581F99115800BF2F74 /* EnrollAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnrollAlert.xib; sourceTree = "<group>"; };
 		B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollAlertView.swift; sourceTree = "<group>"; };
+		B808DE321FABF15800E67966 /* GuestAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuestAlert.xib; sourceTree = "<group>"; };
+		B808DE341FABF17500E67966 /* GuestAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestAlertView.swift; sourceTree = "<group>"; };
 		B80CA3741F9A747C005408AD /* CourseSessions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSessions.swift; sourceTree = "<group>"; };
 		B8112FCA1F9B4AD500D61CE4 /* upComingSessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upComingSessionTableViewCell.swift; sourceTree = "<group>"; };
 		B8112FCC1F9B4F1800D61CE4 /* sessionsTableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sessionsTableCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 				B804E95A1F99116C00BF2F74 /* EnrollAlertView.swift */,
 			);
 			name = EnrollAlert;
+			sourceTree = "<group>";
+		};
+		B808DE311FABF13400E67966 /* GuestAlert */ = {
+			isa = PBXGroup;
+			children = (
+				B808DE321FABF15800E67966 /* GuestAlert.xib */,
+				B808DE341FABF17500E67966 /* GuestAlertView.swift */,
+			);
+			name = GuestAlert;
 			sourceTree = "<group>";
 		};
 		B80CA3731F9A743C005408AD /* CourseSeassions */ = {
@@ -379,6 +392,7 @@
 		B85F18BA1F7D9BD2000263C8 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				B808DE311FABF13400E67966 /* GuestAlert */,
 				B804E9571F99112800BF2F74 /* EnrollAlert */,
 				B89C78291F8FF1BC007861AF /* CustomAlertForPassword */,
 				B840B76C1F8D1EA600D345BF /* CustomAlert */,
@@ -465,6 +479,7 @@
 				B840B7661F8BE16000D345BF /* GoogleService-Info.plist in Resources */,
 				B840B7681F8D172000D345BF /* CustomAlert.xib in Resources */,
 				B804E9591F99115800BF2F74 /* EnrollAlert.xib in Resources */,
+				B808DE331FABF15800E67966 /* GuestAlert.xib in Resources */,
 				B85F18AC1F7D9AF4000263C8 /* Assets.xcassets in Resources */,
 				B8120D1B1F7DA07C00839C37 /* GameViewSB.xib in Resources */,
 				B89C782B1F8FF1E9007861AF /* PasswordPopUp.xib in Resources */,
@@ -532,6 +547,7 @@
 				B83836C01F87FA5C00C2852A /* MainVC.swift in Sources */,
 				B85F18C01F7D9BEC000263C8 /* LoginButton.swift in Sources */,
 				B8120D4D1F824D6200839C37 /* FPFCourses.swift in Sources */,
+				B808DE351FABF17500E67966 /* GuestAlertView.swift in Sources */,
 				B83836BC1F87E53300C2852A /* SideMenuTableViewCell.swift in Sources */,
 				B89C782D1F8FF216007861AF /* EditPasswordPopUpView.swift in Sources */,
 				B8120D201F7E990600839C37 /* SignUpVC.swift in Sources */,

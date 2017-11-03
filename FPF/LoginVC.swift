@@ -28,7 +28,6 @@ class LoginVC: ParentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: check user defaults to autlo login here and in landing
         
         mobileNumberTxtField.tag = 1
         passwordTxtField.tag = 2

@@ -101,7 +101,6 @@ class SignUpVC: ParentViewController {
     @IBAction func DoneBtnPressed(_ sender: Any) {
         bordersBackToNormal()
         view.endEditing(true)
-        
         if !isAllFieldsAreFilledAndValidated()
         {
             return
@@ -331,6 +330,20 @@ class SignUpVC: ParentViewController {
     func showAlert() {
         if let alert = Bundle.main.loadNibNamed("CustomAlert", owner: self, options: nil)?.last as? CustomAlertView
         {
+            let blackView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            self.view.addSubview(blackView)
+            blackView.tag = 500
+            blackView.backgroundColor = UIColor.black
+            blackView.alpha = 0.400000005960464
+            blackView.translatesAutoresizingMaskIntoConstraints = false
+            
+            
+            let leadingConstraint = NSLayoutConstraint(item: blackView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: blackView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+            let topConstraint = NSLayoutConstraint(item: blackView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: blackView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+            self.view.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
+            
             self.view.addSubview(alert)
             alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
             alert.titleLabel.text = "Congratulations!"

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class FPFCourses: ParentViewController {
+class FPFCourses: ParentViewController ,reloadMan {
     
     //MARK: - iboutles
     @IBOutlet weak var tableView: UITableView!
@@ -47,33 +47,24 @@ class FPFCourses: ParentViewController {
         
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if !isFirstTime && UserDefaults.standard.object(forKey: userID) != nil
-        {
-            showLoading()
-            coursesArray.removeAll()
-            grabDataFromApi {
-                
-                if self.coursesArray.count == 0
-                {
-                   self.tableView.isHidden = true
-                }
-                else
-                {
-                    self.tableView.reloadData()
-                }
-                self.hideLoading()
+    
+    func reloadTable()
+    {
+        showLoading()
+        coursesArray.removeAll()
+        grabDataFromApi {
+            
+            if self.coursesArray.count == 0
+            {
+                self.tableView.isHidden = true
             }
+            else
+            {
+                self.tableView.reloadData()
+            }
+            self.hideLoading()
         }
-        else if UserDefaults.standard.object(forKey: userID) != nil
-        {
-            isFirstTime = false
-        }
-        
-        
-        
+
     }
     
     //MARK: - ibactions
@@ -149,6 +140,7 @@ class FPFCourses: ParentViewController {
             if let course = sender as? Course
             {
                 destination.course = course
+                destination.delegate = self
             }
         }
         
@@ -174,7 +166,7 @@ extension FPFCourses: UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCTableViewCell", for: indexPath) as? MainVCTableViewCell
         {
-            //TODO: ask for qoute datasource!
+
             cell.configureCell(course: coursesArray[indexPath.row])
             
             return cell

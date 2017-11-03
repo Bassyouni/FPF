@@ -899,6 +899,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Details" id="FrG-hb-iv1"/>
+                    <connections>
+                        <segue destination="o3N-Xw-Kjm" kind="show" identifier="SignUpVC" id="DMB-Ua-SIg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-ZA-koq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -972,7 +975,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z8d-oK-sE3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="Cly-lL-RV9">
+                        <barButtonItem key="leftBarButtonItem" title="FPF" id="Cly-lL-RV9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="backBtnPressedWithSender_:" destination="uzr-vg-zJ4" id="bgj-GQ-DlS"/>
@@ -1013,7 +1016,7 @@
         <!--Sign UpVC-->
         <scene sceneID="o9w-68-iah">
             <objects>
-                <viewController id="o3N-Xw-Kjm" customClass="SignUpVC" customModule="FPF" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="o3N-Xw-Kjm" customClass="SignUpVC" customModule="FPF" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n7g-tB-EOa"/>
                         <viewControllerLayoutGuide type="bottom" id="Tmm-qA-Qhh"/>
@@ -1428,7 +1431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyU-Yo-DPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4656.8000000000002" y="-279.31034482758622"/>
+            <point key="canvasLocation" x="4548" y="231"/>
         </scene>
         <!--About UsVC-->
         <scene sceneID="Pey-ME-V0a">
@@ -2888,5 +2891,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f8W-Rc-kRF"/>
+        <segue reference="DMB-Ua-SIg"/>
     </inferredMetricsTieBreakers>
 </document>

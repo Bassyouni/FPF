@@ -27,7 +27,6 @@ class TimeTableTableViewCell: UITableViewCell {
     
     func configureCell(course: Course)
     {
-        //TODO: other exeptions like none and stuff
         if course.day1 == "none" || course.time1 == "none"
         {
             firstDayView.isHidden = true

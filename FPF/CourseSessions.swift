@@ -76,7 +76,6 @@ class CourseSessions: ParentViewController  {
                 }
                 else
                 {
-                    //TODO: its obvious ,invitation
                     if let state = dict["state"] as? String
                     {
                         self.state = state
@@ -237,7 +236,6 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //TODO: depend on type make it short or long!
         if indexPath.section == 0
         {
             return 125

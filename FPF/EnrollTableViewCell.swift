@@ -39,6 +39,7 @@ class EnrollTableViewCell: UITableViewCell {
     func showAlert() {
         if let alert = Bundle.main.loadNibNamed("EnrollAlert", owner: self, options: nil)?.last as? EnrollAlertView
         {
+            
             self.superview?.addSubview(alert)
             alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
             
