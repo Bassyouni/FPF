@@ -198,6 +198,7 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
         {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "upComingSessionTableViewCell", for: indexPath) as? upComingSessionTableViewCell
             {
+                cell.configureCell(course: course)
                 return cell
             }
         }

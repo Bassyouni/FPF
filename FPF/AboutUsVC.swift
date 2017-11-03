@@ -61,6 +61,8 @@ class AboutUsVC: UIViewController{
 
 
     }
+    
+    //TODO: phone and facebook on about use implimntaion
 
     
 

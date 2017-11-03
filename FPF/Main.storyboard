@@ -1516,7 +1516,7 @@
                                                                     <constraint firstAttribute="width" constant="25" id="gVM-l9-G6L"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hourly rental fees 50 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSl-Po-vqG">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hourly rental fees 35 L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSl-Po-vqG">
                                                                 <rect key="frame" x="35" y="0.0" width="280" height="25"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2012,6 +2012,10 @@
                                                 <constraint firstItem="FUW-Io-PEk" firstAttribute="top" secondItem="P1W-91-dgc" secondAttribute="topMargin" id="w2Y-zu-PIo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="time" destination="LZo-la-yjN" id="ikc-Ew-JGD"/>
+                                            <outlet property="youHaveASession" destination="2Kv-hV-UQY" id="Kyc-6S-5yA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionsTableTableViewCell" rowHeight="424" id="0sn-xB-HSc" customClass="sessionsTableTableViewCell" customModule="FPF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="375" height="424"/>
