@@ -49,6 +49,8 @@ class SignUpVC: ParentViewController {
     var imagePicker: UIImagePickerController!
     var imageURL: String?
     
+    var delegate: dismissAllBefore?
+    
     //MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,7 @@ class SignUpVC: ParentViewController {
         confirmPasswordTxtField.delegate = self
         
         //firstNameTxtField.enablesReturnKeyAutomatically = false
-        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -16, to: Date())
+        datePicker.maximumDate = Date()
         
     }
     
@@ -163,6 +165,8 @@ class SignUpVC: ParentViewController {
                     UserDefaults.standard.set(parameters["SName"]!, forKey: userSName)
                     UserDefaults.standard.set(parameters["Mobile"]!, forKey: userMobile)
                     UserDefaults.standard.set(parameters["Image"]!, forKey: userImage)
+                    UserDefaults.standard.set(gender, forKey: userGender)
+                    UserDefaults.standard.set(parameters["PMobile"], forKey: userPMobile)
                     
                     //Showing Alert
                     self.showAlert()
@@ -181,6 +185,10 @@ class SignUpVC: ParentViewController {
     //MARK: - segue to mainVC
     @objc private func goToMainVC()
     {
+        if self.delegate != nil
+        {
+            self.delegate?.dissmissAll()
+        }
         let delegate = UIApplication.shared.delegate as? AppDelegate
         let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
         let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")
@@ -521,6 +529,10 @@ extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         imagePicker.dismiss(animated: true, completion: nil)
     }
     }
+}
+
+protocol dismissAllBefore {
+    func dissmissAll()
 }
 
 

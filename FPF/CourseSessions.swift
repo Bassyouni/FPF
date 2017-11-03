@@ -150,7 +150,7 @@ class CourseSessions: ParentViewController  {
                 alert.confirmPasswordTextField.keyboardType = .numberPad
                 alert.passwordTextField.isSecureTextEntry = false
                 alert.confirmPasswordTextField.isSecureTextEntry = false
-                alert.doneBtn.addTarget(self, action: #selector(self.alertDonePressed(_:)), for: UIControlEvents.touchUpInside)
+
                 alert.doneBtn.removeTarget(EditPasswordPopUpView.self, action: #selector(EditPasswordPopUpView.DoneBtnPressed(_:)) , for: UIControlEvents.touchUpInside)
                 self.navigationController?.view.bringSubview(toFront: alert)
                 alert.isUserInteractionEnabled = true
@@ -158,10 +158,6 @@ class CourseSessions: ParentViewController  {
         }
     }
     
-    func alertDonePressed(_ sender: UIButton)
-    {
-        print("xxxx")
-    }
     
     @objc private func removeAlert()
     {

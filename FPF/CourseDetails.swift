@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CourseDetails: UITableViewController {
+class CourseDetails: UITableViewController , dismissAllBefore {
     
     //MARK: - variables
 
@@ -85,13 +85,22 @@ class CourseDetails: UITableViewController {
         }
     }
     
+    func dissmissAll()
+    {
+        self.navigationController?.dismiss(animated: false, completion: nil)
+    }
+    
     func goToSginupVC()
     {
-        self.navigationController?.dismiss(animated: true, completion: nil)
-
-        let delegate = UIApplication.shared.delegate as? AppDelegate
-        let singupVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC")
-        delegate?.window?.rootViewController = singupVC
+        
+        
+        if let signupVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC
+        {
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            signupVC.delegate = self
+            delegate?.window?.rootViewController = signupVC
+        }
+        
     }
     
     func goToLoginVC()

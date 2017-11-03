@@ -111,9 +111,13 @@ class FPFCourses: ParentViewController ,reloadMan {
                     {
                         if let courseDict = dict["\(i)"] as? Dictionary<String, String>
                         {
-                            print("xxx: ",courseDict)
                             let course = Course()
                             course.populateClassFromApi(dict: courseDict)
+                            //TODO: so what about the free cell?
+                            if course.id == "4"
+                            {
+                                continue
+                            }
                             self.coursesArray.append(course)
                         }
                         
@@ -160,6 +164,14 @@ extension FPFCourses: UITableViewDelegate , UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if coursesArray.count == 0
+        {
+            tableView.isHidden = true
+        }
+        else
+        {
+            tableView.isHidden = false
+        }
         return coursesArray.count
     }
     

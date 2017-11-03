@@ -261,14 +261,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Activity" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-2O-EOC">
-                                        <rect key="frame" x="72.5" y="60" width="230" height="230"/>
+                                        <rect key="frame" x="72.5" y="90" width="230" height="230"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="8PP-yk-cax"/>
                                             <constraint firstAttribute="height" constant="230" id="fDa-gq-bqS"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You enrolled in all of them" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yy1-e7-CHk">
-                                        <rect key="frame" x="79" y="311" width="218" height="25"/>
+                                        <rect key="frame" x="79" y="341" width="218" height="25"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -278,7 +278,7 @@
                                 <constraints>
                                     <constraint firstItem="pTh-2O-EOC" firstAttribute="centerX" secondItem="5cd-zQ-A23" secondAttribute="centerX" id="ArT-Ij-fdO"/>
                                     <constraint firstItem="yy1-e7-CHk" firstAttribute="centerX" secondItem="5cd-zQ-A23" secondAttribute="centerX" id="enV-Tq-bcf"/>
-                                    <constraint firstItem="pTh-2O-EOC" firstAttribute="top" secondItem="5cd-zQ-A23" secondAttribute="top" constant="60" id="q7j-Vd-coK"/>
+                                    <constraint firstItem="pTh-2O-EOC" firstAttribute="top" secondItem="5cd-zQ-A23" secondAttribute="top" constant="90" id="q7j-Vd-coK"/>
                                     <constraint firstItem="yy1-e7-CHk" firstAttribute="top" secondItem="pTh-2O-EOC" secondAttribute="bottom" constant="21" id="zxY-x4-qR8"/>
                                 </constraints>
                             </view>
@@ -900,7 +900,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Course Details" id="FrG-hb-iv1"/>
                     <connections>
-                        <segue destination="o3N-Xw-Kjm" kind="show" identifier="SignUpVC" id="DMB-Ua-SIg"/>
+                        <segue destination="o3N-Xw-Kjm" kind="presentation" identifier="SignUpVC" modalTransitionStyle="crossDissolve" id="DMB-Ua-SIg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-ZA-koq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1828,14 +1828,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Activity" translatesAutoresizingMaskIntoConstraints="NO" id="T0K-zK-Amg">
-                                        <rect key="frame" x="72.5" y="60" width="230" height="230"/>
+                                        <rect key="frame" x="72.5" y="90" width="230" height="230"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="XMn-Y6-P19"/>
                                             <constraint firstAttribute="height" constant="230" id="ji2-Tj-QTA"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enrolled in course yet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnI-SC-2dr">
-                                        <rect key="frame" x="77" y="311" width="221" height="25"/>
+                                        <rect key="frame" x="77" y="341" width="221" height="25"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1844,7 +1844,7 @@
                                 <color key="backgroundColor" red="0.92149782180786133" green="0.92160838842391968" blue="0.92146027088165283" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="T0K-zK-Amg" firstAttribute="centerX" secondItem="w5K-yK-Jlf" secondAttribute="centerX" id="Iux-UF-Pnl"/>
-                                    <constraint firstItem="T0K-zK-Amg" firstAttribute="top" secondItem="w5K-yK-Jlf" secondAttribute="top" constant="60" id="NTC-PS-Q0I"/>
+                                    <constraint firstItem="T0K-zK-Amg" firstAttribute="top" secondItem="w5K-yK-Jlf" secondAttribute="top" constant="90" id="NTC-PS-Q0I"/>
                                     <constraint firstItem="FnI-SC-2dr" firstAttribute="centerX" secondItem="w5K-yK-Jlf" secondAttribute="centerX" id="PcL-mL-kU2"/>
                                     <constraint firstItem="FnI-SC-2dr" firstAttribute="top" secondItem="T0K-zK-Amg" secondAttribute="bottom" constant="21" id="Zu8-2N-abc"/>
                                 </constraints>

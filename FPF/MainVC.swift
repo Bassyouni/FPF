@@ -103,6 +103,14 @@ extension MainVC: UITableViewDelegate , UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if coursesArray.count == 0
+        {
+            tableView.isHidden = true
+        }
+        else
+        {
+            tableView.isHidden = false
+        }
         return coursesArray.count
     }
     
