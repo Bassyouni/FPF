@@ -251,7 +251,20 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
         }
         else if indexPath.section == 3
         {
-            return 246
+            var rowHeight = 56
+            if course.pricePerSession != "none"
+            {
+                rowHeight += 60
+            }
+            if course.pricePerMonth8Sessions != "none"
+            {
+                rowHeight += 65
+            }
+            if course.pricePerMonth12Sessions != "none"
+            {
+                rowHeight += 65
+            }
+            return CGFloat(rowHeight)
         }
         return 0
     }

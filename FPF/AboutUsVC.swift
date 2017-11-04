@@ -67,10 +67,18 @@ class AboutUsVC: UIViewController{
     }
     
     @IBAction func telephoneBtnPressed(_ sender: Any) {
+        let fpfPhone = "01000494193"
+        if let url = URL(string: "tel://\(fpfPhone)"), UIApplication.shared.canOpenURL(url)
+        {
+            if #available(iOS 10, *)
+            {
+                UIApplication.shared.open(url)
+            } else
+            {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
-    
-    //TODO: phone and facebook on about use implimntaion
 
-    
 
 }
