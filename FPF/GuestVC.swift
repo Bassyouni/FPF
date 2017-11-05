@@ -12,6 +12,7 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
     
     var aboutUsVC: UIViewController!
     var fpfCoursesVC: UIViewController!
+    var delegateSegueToSignUpVC: segueToSignUpVCDelegate?
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -19,8 +20,19 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
     deinit {
+        if delegateSegueToSignUpVC != nil
+        {
+            
+            if (UserDefaults.standard.object(forKey: "goToSignUpVC") != nil)
+            {
+                delegateSegueToSignUpVC!.goToSignUpVC()
+                UserDefaults.standard.removeObject(forKey: "goToSignUpVC")
+            }
+            
+        }
         print("GuestVc deinit")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,4 +135,8 @@ class GuestVC: UIViewController, UIScrollViewDelegate {
     @IBAction func backBtnPressed(sender_: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
+}
+
+protocol segueToSignUpVCDelegate {
+    func goToSignUpVC()
 }

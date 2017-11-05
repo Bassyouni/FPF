@@ -11,7 +11,7 @@ import JVFloatLabeledTextField
 import Alamofire
 import IHKeyboardAvoiding
 
-class LoginVC: ParentViewController {
+class LoginVC: ParentViewController, segueToSignUpVCDelegate {
 
     //MARK: - iboutlets
     @IBOutlet weak var loginBtn: LoginButton!
@@ -26,6 +26,7 @@ class LoginVC: ParentViewController {
     @IBOutlet weak var mobileNumberBottomBorder: UIView!
     
     @IBOutlet weak var loginView: LoginView!
+    
     //MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,6 +165,10 @@ class LoginVC: ParentViewController {
         performSegue(withIdentifier: "GuestVC", sender: nil)
     }
     
+    @IBAction func signUpNowBtnPressd(_ sender: Any) {
+        goToSignUpVC()
+    }
+    
     
     //MARK: - segue
     private func goToMainVC()
@@ -176,6 +181,17 @@ class LoginVC: ParentViewController {
         let containerVC = MFSideMenuContainerViewController.container(withCenter: mainVCNav , leftMenuViewController: sideMenuVC, rightMenuViewController: nil)
 
         delegate?.window?.rootViewController = containerVC
+    }
+    
+    func goToSignUpVC() {
+        performSegue(withIdentifier: "SignUpVC", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? UINavigationController
+        {
+            let guest = dest.viewControllers[0] as? GuestVC
+            guest?.delegateSegueToSignUpVC = self
+        }
     }
     
     //MARK: - validation

@@ -17,7 +17,8 @@ class CourseDetails: UITableViewController , dismissAllBefore {
     
     var course: Course!
     
-    var delegate: reloadMan?
+    var delegateReload: reloadMan?
+
     
     deinit {
         print("courseDetails deinit")
@@ -25,6 +26,8 @@ class CourseDetails: UITableViewController , dismissAllBefore {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
        
             self.title = course.name
             if let topItem = self.navigationController?.navigationBar.topItem
@@ -92,14 +95,15 @@ class CourseDetails: UITableViewController , dismissAllBefore {
     
     func goToSginupVC()
     {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(true, forKey: "goToSignUpVC")
         
-        
-        if let signupVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC
-        {
-            let delegate = UIApplication.shared.delegate as? AppDelegate
-            signupVC.delegate = self
-            delegate?.window?.rootViewController = signupVC
-        }
+//        if let signupVC = storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpVC
+//        {
+//            let delegate = UIApplication.shared.delegate as? AppDelegate
+//            signupVC.delegate = self
+//            delegate?.window?.rootViewController = signupVC
+//        }
         
     }
     
@@ -255,7 +259,7 @@ class CourseDetails: UITableViewController , dismissAllBefore {
             alert.goToNextPageBtn.addTarget(self, action: #selector(self.goBackToFPFCourses), for: UIControlEvents.touchUpInside)
             self.navigationController?.view.bringSubview(toFront: alert)
             alert.isUserInteractionEnabled = true
-            self.delegate?.reloadTable()
+            self.delegateReload?.reloadTable()
         }
     }
     
@@ -376,3 +380,5 @@ extension CourseDetails
 protocol reloadMan {
     func reloadTable()
 }
+
+

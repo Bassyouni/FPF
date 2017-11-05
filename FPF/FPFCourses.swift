@@ -156,7 +156,7 @@ class FPFCourses: ParentViewController ,reloadMan {
             if let course = sender as? Course
             {
                 destination.course = course
-                destination.delegate = self
+                destination.delegateReload = self
             }
         }
         
