@@ -25,6 +25,14 @@ class MainVC: ParentViewController {
         showLoading()
         grabDataFromApi {
             self.tableView.reloadData()
+            if self.coursesArray.count == 0
+            {
+                self.tableView.isHidden = true
+            }
+            else
+            {
+                self.tableView.isHidden = false
+            }
             self.hideLoading()
         }
     }
@@ -103,14 +111,6 @@ extension MainVC: UITableViewDelegate , UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if coursesArray.count == 0
-        {
-            tableView.isHidden = true
-        }
-        else
-        {
-            tableView.isHidden = false
-        }
         return coursesArray.count
     }
     

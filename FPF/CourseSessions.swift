@@ -243,7 +243,11 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
             {
                 return (424 - 120)
             }
-            return (424 - 40)
+            else if type == "12_session"
+            {
+                return 424 
+            }
+            
         }
         else if indexPath.section == 2
         {

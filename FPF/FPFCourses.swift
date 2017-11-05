@@ -41,6 +41,17 @@ class FPFCourses: ParentViewController ,reloadMan {
 
         grabDataFromApi {
             self.tableView.reloadData()
+            
+            if self.coursesArray.count == 0
+            {
+                self.tableView.isHidden = true
+            }
+            else
+            {
+                self.tableView.isHidden = false
+                self.tableView.reloadData()
+            }
+            
             self.hideLoading()
         }
     
@@ -60,6 +71,7 @@ class FPFCourses: ParentViewController ,reloadMan {
             }
             else
             {
+                self.tableView.isHidden = false
                 self.tableView.reloadData()
             }
             self.hideLoading()
@@ -164,14 +176,6 @@ extension FPFCourses: UITableViewDelegate , UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if coursesArray.count == 0
-        {
-            tableView.isHidden = true
-        }
-        else
-        {
-            tableView.isHidden = false
-        }
         return coursesArray.count
     }
     

@@ -698,11 +698,12 @@
 				DEVELOPMENT_TEAM = WED766W23U;
 				INFOPLIST_FILE = FPF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FPF;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FPF897897897.klkjkljkljlkjl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Bassyouni/Desktop/FPF/FPF/FPF-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -715,10 +716,11 @@
 				DEVELOPMENT_TEAM = WED766W23U;
 				INFOPLIST_FILE = FPF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FPF;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FPF897897897.klkjkljkljlkjl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Bassyouni/Desktop/FPF/FPF/FPF-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
