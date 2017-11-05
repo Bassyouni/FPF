@@ -19,6 +19,7 @@ class LoginVC: ParentViewController {
     @IBOutlet weak var mobileNumberTxtField: JVFloatLabeledTextField!
     @IBOutlet weak var passwordTxtField: JVFloatLabeledTextField!
     
+    @IBOutlet weak var blueTopViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var passwordBorderHeight: NSLayoutConstraint!
     @IBOutlet weak var mobileBorderHeight: NSLayoutConstraint!
     @IBOutlet weak var passwordBottomBorder: UIView!
@@ -28,7 +29,16 @@ class LoginVC: ParentViewController {
     //MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Constant: \(self.view.frame.size.height)")
         
+        if self.view.frame.size.height < 667
+        {
+            blueTopViewHeightConstraint.constant = 260
+        }
+        else
+        {
+            blueTopViewHeightConstraint.constant = 295
+        }
         
         mobileNumberTxtField.tag = 1
         passwordTxtField.tag = 2
@@ -158,6 +168,7 @@ class LoginVC: ParentViewController {
     //MARK: - segue
     private func goToMainVC()
     {
+        view.endEditing(true)
         let delegate = UIApplication.shared.delegate as? AppDelegate
         let mainVCNav = storyboard?.instantiateViewController(withIdentifier: "MainVC")
         let sideMenuVC = storyboard?.instantiateViewController(withIdentifier: "SideVC")

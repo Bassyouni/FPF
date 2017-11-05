@@ -57,9 +57,14 @@ class ProfileVC: ParentViewController {
     @IBAction func changePasswordBtnPressed(_ sender: Any) {
         if let alert = Bundle.main.loadNibNamed("PasswordPopUp", owner: self, options: nil)?.last as? EditPasswordPopUpView
         {
-            self.alertBackView.isHidden = false
+
             self.view.addSubview(alert)
-            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+            
+
+            
+            self.alertBackView.isHidden = false
+            
+            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2))
             alert.tag = 100
             self.view.bringSubview(toFront: alert)
             alert.isUserInteractionEnabled = true

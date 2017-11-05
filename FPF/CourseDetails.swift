@@ -152,8 +152,10 @@ class CourseDetails: UITableViewController , dismissAllBefore {
     
     func enrollToCourse(alert: UIView)
     {
+        
         if let alert = self.navigationController?.view.viewWithTag(200) as? EnrollAlertView
         {
+            alert.isUserInteractionEnabled = false
             var selected = "none"
             if alert.bySessionBtn.isSelected == true
             {
@@ -171,7 +173,6 @@ class CourseDetails: UITableViewController , dismissAllBefore {
             {
                 return
             }
-            
             addCourseOnServer(type: selected)
             
         }
@@ -183,6 +184,7 @@ class CourseDetails: UITableViewController , dismissAllBefore {
         
         let parameters = ["User_ID": UserDefaults.standard.string(forKey: userID)! , "Course_ID": course.id , "type": type]
         
+        self.removeSubview()
         self.showLoading()
         Alamofire.request(url!, method: .post, parameters: parameters).responseJSON { (response) in
             
@@ -200,7 +202,6 @@ class CourseDetails: UITableViewController , dismissAllBefore {
                     }
                     else
                     {
-                        self.removeSubview()
                         self.showSuccsessAlert()
                     }
                 }
@@ -215,6 +216,7 @@ class CourseDetails: UITableViewController , dismissAllBefore {
         if let viewWithTag = self.navigationController?.view.viewWithTag(200) {
             viewWithTag.removeFromSuperview()
             self.tableView.isScrollEnabled = true
+            viewWithTag.isUserInteractionEnabled = true
             if let back = self.navigationController?.view.viewWithTag(500)
             {
                 back.removeFromSuperview()
@@ -244,7 +246,7 @@ class CourseDetails: UITableViewController , dismissAllBefore {
             
             self.navigationController?.view.addSubview(alert)
             alert.tag = 200
-            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2)-20)
+            alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2))
             alert.alertHeightConstraint.constant = 280
             alert.titleLabel.text = "Hurray!!"
             alert.bodyLabel.text = "You are successfully enrolled\nYou have to visit FPF as soon as possible\nYour request will be granted once you pay the fees"
