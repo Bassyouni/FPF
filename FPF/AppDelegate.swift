@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (UserDefaults.standard.object(forKey: "isFirstTime") == nil)
         {
-            UserDefaults.standard.set("true", forKey: "isFirstTime")
             initialVC = storyboard.instantiateViewController(withIdentifier: "LandingVC")
         }
         else if UserDefaults.standard.object(forKey: userID) != nil

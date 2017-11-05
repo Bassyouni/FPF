@@ -9,7 +9,7 @@
 import UIKit
 import JVFloatLabeledTextField
 import Alamofire
-
+import IHKeyboardAvoiding
 
 class LoginVC: ParentViewController {
 
@@ -24,6 +24,7 @@ class LoginVC: ParentViewController {
     @IBOutlet weak var passwordBottomBorder: UIView!
     @IBOutlet weak var mobileNumberBottomBorder: UIView!
     
+    @IBOutlet weak var loginView: LoginView!
     //MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class LoginVC: ParentViewController {
         passwordTxtField.tag = 2
         mobileNumberTxtField.delegate = self
         passwordTxtField.delegate = self
+        KeyboardAvoiding.avoidingView = loginView
     }
 
     //MARK: - ibactions

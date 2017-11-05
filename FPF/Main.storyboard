@@ -224,13 +224,13 @@
                             <constraint firstAttribute="trailing" secondItem="qal-2u-rKw" secondAttribute="trailing" constant="32" id="Dqw-2T-sen"/>
                             <constraint firstItem="SA2-L8-JKQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LQg-Kt-GVD"/>
                             <constraint firstItem="SA2-L8-JKQ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="P5Z-XA-ctA"/>
-                            <constraint firstItem="0RN-aj-YqX" firstAttribute="top" secondItem="l1M-Ai-bKS" secondAttribute="bottom" constant="-145" id="eOB-Z2-aC6"/>
                             <constraint firstItem="qal-2u-rKw" firstAttribute="top" secondItem="SA2-L8-JKQ" secondAttribute="bottom" constant="-57" id="iYg-Xx-8Hz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EUg-gp-fhn"/>
                     <connections>
                         <outlet property="loginBtn" destination="bsj-im-0mZ" id="re8-X4-09E"/>
+                        <outlet property="loginView" destination="qal-2u-rKw" id="Zba-7R-iPI"/>
                         <outlet property="logoImageView" destination="TLc-FY-cAh" id="Nxe-HL-XdI"/>
                         <outlet property="mobileBorderHeight" destination="85k-F1-2z4" id="yQD-Rj-MH0"/>
                         <outlet property="mobileNumberBottomBorder" destination="7zl-sp-Xjt" id="zQg-cI-FbE"/>
@@ -2900,7 +2900,7 @@
         <image name="the_line" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ymk-93-NWp"/>
         <segue reference="f8W-Rc-kRF"/>
-        <segue reference="DMB-Ua-SIg"/>
     </inferredMetricsTieBreakers>
 </document>

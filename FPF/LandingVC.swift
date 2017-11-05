@@ -42,14 +42,7 @@ class LandingVC: UIViewController, UIScrollViewDelegate {
         loadGamesInScrollView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if UserDefaults.standard.object(forKey: userID) != nil
-        {
-            performSegue(withIdentifier: "LoginVC", sender: nil)
-        }
-    }
+
     
     //MARK: - loadGamesInScrollView
     func loadGamesInScrollView()
@@ -62,7 +55,7 @@ class LandingVC: UIViewController, UIScrollViewDelegate {
                 gameView.titleLabel.text = game["title"]
                 gameView.quoteLabel.text = game["quote"]
                 scrollView.addSubview(gameView)
-                gameView.frame.size.width = self.view.bounds.size.width
+                //gameView.frame.size.width = 400 //self.view.bounds.size.width
                 gameView.frame.origin.x = CGFloat(index) * self.view.bounds.size.width
             }
         }
@@ -98,6 +91,8 @@ class LandingVC: UIViewController, UIScrollViewDelegate {
         }
         else
         {
+            //to not show this view again
+            UserDefaults.standard.set("true", forKey: "isFirstTime")
             performSegue(withIdentifier: "LoginVC", sender: nil)
         }
         
@@ -105,6 +100,8 @@ class LandingVC: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction func skipBtnPressed(_ sender: Any) {
+        //to not show this view again
+        UserDefaults.standard.set("true", forKey: "isFirstTime")
         performSegue(withIdentifier: "LoginVC", sender: nil)
     }
 
