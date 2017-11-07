@@ -11,9 +11,12 @@ import DLRadioButton
 import JVFloatLabeledTextField
 import Alamofire
 import Firebase
+import IHKeyboardAvoiding
 
 class SignUpVC: ParentViewController {
     
+    
+    @IBOutlet weak var birthDateStackView: UIStackView!
     //MARK: - iboutles
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navbarView: UIView!
@@ -30,7 +33,9 @@ class SignUpVC: ParentViewController {
     @IBOutlet weak var parentsMobileNumberTxtField: JVFloatLabeledTextField!
     @IBOutlet weak var passwordTxtField: JVFloatLabeledTextField!
     @IBOutlet weak var confirmPasswordTxtField: JVFloatLabeledTextField!
+    @IBOutlet weak var birthDateTextField: JVFloatLabeledTextField!
     
+    @IBOutlet weak var birthDateBottomBorderView: UIView!
     @IBOutlet weak var firstNameBottomBorderView: UIView!
     @IBOutlet weak var lastNameBottomBorderView: UIView!
     @IBOutlet weak var mobileNumberBottomBorderView: UIView!
@@ -38,6 +43,11 @@ class SignUpVC: ParentViewController {
     @IBOutlet weak var passwordBottomBorderView: UIView!
     @IBOutlet weak var confirmPasswordBottomBorderView: UIView!
     
+    @IBOutlet weak var doneBtn: UIButton!
+    
+    @IBOutlet weak var MainViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var birthDateViewHeight: NSLayoutConstraint!
     @IBOutlet weak var firstNameViewHeight: NSLayoutConstraint!
     @IBOutlet weak var lastNameViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mobileNumberViewHeight: NSLayoutConstraint!
@@ -56,6 +66,8 @@ class SignUpVC: ParentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        KeyboardAvoiding.avoidingView = scrollView
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard(_:)))
         topView.addGestureRecognizer(tapGesture)
         
@@ -70,9 +82,12 @@ class SignUpVC: ParentViewController {
         parentsMobileNumberTxtField.delegate = self
         passwordTxtField.delegate = self
         confirmPasswordTxtField.delegate = self
+        birthDateTextField.delegate = self
+        birthDateTextField.inputView = UIView()
         
         //firstNameTxtField.enablesReturnKeyAutomatically = false
         datePicker.maximumDate = Date()
+        doneBtn.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -227,6 +242,8 @@ class SignUpVC: ParentViewController {
         self.lastNameViewHeight.constant = 1
         self.firstNameBottomBorderView.backgroundColor = UIColor.darkGray
         self.firstNameViewHeight.constant = 1
+        self.birthDateBottomBorderView.backgroundColor = UIColor.darkGray
+        self.birthDateViewHeight.constant = 1
     }
 
     private func isAllFieldsAreFilledAndValidated() -> Bool
@@ -302,6 +319,12 @@ class SignUpVC: ParentViewController {
             self.confirmPasswordViewHeight.constant = 2
             return false
         }
+        else if birthDateTextField.text == ""
+        {
+            self.birthDateBottomBorderView.backgroundColor = UIColor.red
+            self.birthDateViewHeight.constant = 2
+            return false
+        }
         else if imageURL == nil
         {
             let alert = UIAlertController(title: NSLocalizedString("Please Choose an Image", comment: ""), message: NSLocalizedString("This will be used for your profile", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
@@ -372,6 +395,16 @@ class SignUpVC: ParentViewController {
             alert.isUserInteractionEnabled = true
         }
     }
+    
+    //MARK: - datepicker functions
+    
+    func handleDatePicker(sender: UIDatePicker) {
+        MainViewHeight.constant = 800
+        birthDateTextField.text = datePicker.date.formatted
+        birthDateStackView.isHidden = false
+        datePicker.isHidden = true
+        doneBtn.isHidden = true
+    }
 
     
 }
@@ -381,7 +414,6 @@ extension SignUpVC: UITextFieldDelegate
 {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Try to find next responder
-        
         
         
       if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? JVFloatLabeledTextField
@@ -440,9 +472,24 @@ extension SignUpVC: UITextFieldDelegate
                 self.confirmPasswordViewHeight.constant = 2
             })
         }
+        else if textField.tag == 7
+        {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.MainViewHeight.constant = 930
+                self.birthDateStackView.isHidden = true
+                self.datePicker.isHidden = false
+                self.birthDateBottomBorderView.backgroundColor = customBlueColor
+                self.birthDateViewHeight.constant = 2
+                self.doneBtn.isHidden = false
+                
+            })
+            let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+            self.scrollView.setContentOffset(bottomOffset, animated: true)
+        }
         
     }
     
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1
         {
@@ -484,6 +531,13 @@ extension SignUpVC: UITextFieldDelegate
             UIView.animate(withDuration: 0.3, animations: {
                 self.confirmPasswordBottomBorderView.backgroundColor = UIColor.darkGray
                 self.confirmPasswordViewHeight.constant = 1
+            })
+        }
+        else if textField.tag == 7
+        {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.birthDateBottomBorderView.backgroundColor = UIColor.darkGray
+                self.birthDateViewHeight.constant = 1
             })
         }
     }
@@ -538,8 +592,19 @@ extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         imagePicker.dismiss(animated: true, completion: nil)
     }
     }
+    
+    
 }
 
+extension Date {
+    var formatted: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return  formatter.string(from: self as Date)
+    }
+}
+
+// prtocol for guest when want to sign up , this is deinit all and release memory
 protocol dismissAllBefore {
     func dissmissAll()
 }
