@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //TODO: birthdate make it field then show date Picker
+    // course sessions adjust for smaller screens ,smaller than iPhone 7
+    // check for internet connections and show warnning in login and inside the app
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

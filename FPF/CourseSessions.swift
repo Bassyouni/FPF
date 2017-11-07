@@ -47,10 +47,7 @@ class CourseSessions: ParentViewController  {
             self.tableView.reloadData()
             self.hideLoading()
         }
-        //remove alert when changing password with double tap
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.removeAlert))
-        tap.numberOfTapsRequired = 2
-        self.navigationController?.view.addGestureRecognizer(tap)
+
        
     }
     
@@ -132,6 +129,13 @@ class CourseSessions: ParentViewController  {
                 blackView.backgroundColor = UIColor.black
                 blackView.alpha = 0.400000005960464
                 blackView.translatesAutoresizingMaskIntoConstraints = false
+                let tap = UITapGestureRecognizer(target: self, action: #selector(self.removeAlert))
+                blackView.addGestureRecognizer(tap)
+                
+                //remove alert when changing password with  tap
+                
+                
+                
                 
                 
                 let leadingConstraint = NSLayoutConstraint(item: blackView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
@@ -174,6 +178,7 @@ class CourseSessions: ParentViewController  {
     //MARK: - keyboardDissmissOnTouch
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+        removeAlert()
         
     }
 }

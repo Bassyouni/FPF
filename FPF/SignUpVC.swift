@@ -51,9 +51,13 @@ class SignUpVC: ParentViewController {
     
     var delegate: dismissAllBefore?
     
+    @IBOutlet weak var topView: ShadowView!
     //MARK: - viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard(_:)))
+        topView.addGestureRecognizer(tapGesture)
         
         //image picker init
         imagePicker = UIImagePickerController()
@@ -200,6 +204,11 @@ class SignUpVC: ParentViewController {
     
     //MARK: - keyboardDissmissOnTouch
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func dismissKeyBoard(_ sender: UITapGestureRecognizer)
+    {
         view.endEditing(true)
     }
     

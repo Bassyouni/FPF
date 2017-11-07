@@ -45,10 +45,7 @@ class ProfileVC: ParentViewController {
         
         loadDataIntoFields()
         
-        //remove alert when changing password with double tap
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.removeAlert))
-        tap.numberOfTapsRequired = 2
-        self.view.addGestureRecognizer(tap)
+
         
 
     }
@@ -63,6 +60,8 @@ class ProfileVC: ParentViewController {
 
             
             self.alertBackView.isHidden = false
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.removeAlert))
+            alertBackView.addGestureRecognizer(tap)
             
             alert.center = CGPoint(x: UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2))
             alert.tag = 100

@@ -26,6 +26,7 @@ class EditPasswordPopUpView: UIView {
     
     var inviteFriendVC:MFSideMenuContainerViewController?
     var profileVC: UIViewController?
+    var hud : MBProgressHUD!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +34,21 @@ class EditPasswordPopUpView: UIView {
         confirmPasswordTextField.delegate = self
         KeyboardAvoiding.avoidingView = self
 
+    }
+    
+    //MARK: - progress hud
+    func showLoading()
+    {
+        //        self.view.alpha = 0.5
+        //    self.view.backgroundColor = UIColor.blackColor()
+        self.hud = MBProgressHUD.showAdded(to: self.superview, animated: true)
+        hud.mode = MBProgressHUDModeIndeterminate
+    }
+    
+    func hideLoading()
+    {
+        //        self.view.alpha = 1.0
+        self.hud.hide(true)
     }
     
     @IBAction func DoneBtnPressed(_ sender: Any) {
@@ -50,6 +66,7 @@ class EditPasswordPopUpView: UIView {
         
         if validated
         {
+            self.showLoading()
             if profileVC != nil
             {
                 callWebServiceForEditPassword()
@@ -109,7 +126,9 @@ class EditPasswordPopUpView: UIView {
                 let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Problem in web request", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                
             }
+            self.hideLoading()
         }
     }
     
@@ -162,6 +181,7 @@ class EditPasswordPopUpView: UIView {
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
 
             }
+         self.hideLoading()
         }
     }
 

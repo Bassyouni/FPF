@@ -293,10 +293,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="px4-ja-Pft">
-                                                    <rect key="frame" x="18" y="18" width="284" height="164"/>
+                                                    <rect key="frame" x="18" y="18" width="339" height="164"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parkour_item in list" translatesAutoresizingMaskIntoConstraints="NO" id="dBS-D1-c0q">
-                                                            <rect key="frame" x="120" y="0.0" width="164" height="164"/>
+                                                            <rect key="frame" x="120" y="0.0" width="219" height="164"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-80" translatesAutoresizingMaskIntoConstraints="NO" id="fDR-Sb-tGE">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="164"/>
@@ -1413,6 +1413,7 @@
                         <outlet property="passwordTxtField" destination="nmv-Cl-ZOB" id="9zr-cK-cW5"/>
                         <outlet property="passwordViewHeight" destination="4gz-xK-Ync" id="0rO-Ge-VAD"/>
                         <outlet property="scrollView" destination="lLR-mO-uql" id="xkt-je-uy9"/>
+                        <outlet property="topView" destination="yGh-1X-LD6" id="3J8-g3-sPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyU-Yo-DPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1730,7 +1731,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOv-gC-sUA">
-                                                    <rect key="frame" x="65" y="23" width="247" height="21"/>
+                                                    <rect key="frame" x="65" y="23" width="302" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.41173088550567627" green="0.41178369522094727" blue="0.4117128849029541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1853,10 +1854,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vp6-2g-t98">
-                                                    <rect key="frame" x="18" y="18" width="284" height="174"/>
+                                                    <rect key="frame" x="18" y="18" width="339" height="174"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parkour_item in list" translatesAutoresizingMaskIntoConstraints="NO" id="TyZ-LX-ZUM">
-                                                            <rect key="frame" x="120" y="0.0" width="164" height="174"/>
+                                                            <rect key="frame" x="120" y="0.0" width="219" height="174"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-80" translatesAutoresizingMaskIntoConstraints="NO" id="mtR-BP-uIC">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="174"/>

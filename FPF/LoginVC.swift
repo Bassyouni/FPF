@@ -265,5 +265,19 @@ extension LoginVC: UITextFieldDelegate
         self.view.endEditing(true)
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.tag == 1
+        {
+            let currentCharacterCount = textField.text?.characters.count ?? 0
+            if (range.length + range.location > currentCharacterCount){
+                return false
+            }
+            let newLength = currentCharacterCount + string.characters.count - range.length
+            return newLength <= 11
+        }
+        return true
+        
+    }
 }
 

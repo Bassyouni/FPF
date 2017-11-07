@@ -63,11 +63,11 @@ class AboutUsVC: UIViewController{
     }
     
     @IBAction func facebookBtnPressed(_ sender: Any) {
-        UIApplication.tryURL(urls: ["fb://facebook.com/fpfegypt","https://www.facebook.com/fpfegypt"])
+        UIApplication.tryURL(urls: ["fb://facebook.com/fpfegypt","fb://profile/1119164504763449","https://www.facebook.com/fpfegypt"])
     }
     
     @IBAction func telephoneBtnPressed(_ sender: Any) {
-        let fpfPhone = "01000494193"
+        let fpfPhone = "01001330337"
         if let url = URL(string: "tel://\(fpfPhone)"), UIApplication.shared.canOpenURL(url)
         {
             if #available(iOS 10, *)
