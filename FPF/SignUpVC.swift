@@ -28,6 +28,7 @@ class SignUpVC: ParentViewController {
     @IBOutlet weak var avatarImage: RoundImage!
     
     @IBOutlet weak var firstNameTxtField: JVFloatLabeledTextField!
+
     @IBOutlet weak var lastNameTxtField: JVFloatLabeledTextField!
     @IBOutlet weak var mobileNumberTxtField: JVFloatLabeledTextField!
     @IBOutlet weak var parentsMobileNumberTxtField: JVFloatLabeledTextField!
@@ -43,6 +44,7 @@ class SignUpVC: ParentViewController {
     @IBOutlet weak var passwordBottomBorderView: UIView!
     @IBOutlet weak var confirmPasswordBottomBorderView: UIView!
     
+    @IBOutlet weak var viewHoldingTextFields: UIView!
     @IBOutlet weak var doneBtn: UIButton!
     
     @IBOutlet weak var MainViewHeight: NSLayoutConstraint!
@@ -77,11 +79,17 @@ class SignUpVC: ParentViewController {
         
         maleRadioBtn.isSelected = true
         firstNameTxtField.delegate = self
+        firstNameTxtField.returnKeyType = .next
         lastNameTxtField.delegate = self
+        lastNameTxtField.returnKeyType = .next
         mobileNumberTxtField.delegate = self
+        mobileNumberTxtField.returnKeyType = .next
         parentsMobileNumberTxtField.delegate = self
+        parentsMobileNumberTxtField.returnKeyType = .next
         passwordTxtField.delegate = self
+        passwordTxtField.returnKeyType = .next
         confirmPasswordTxtField.delegate = self
+        confirmPasswordTxtField.returnKeyType = .next
         birthDateTextField.delegate = self
         birthDateTextField.inputView = UIView()
         
@@ -415,8 +423,15 @@ extension SignUpVC: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Try to find next responder
         
+        print(textField.tag + 1)
         
-      if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? JVFloatLabeledTextField
+        
+      if textField.tag + 1 == 2
+      {
+        //this condition because its not working on this text field only
+        lastNameTxtField.becomeFirstResponder()
+      }
+      else if let nextField = viewHoldingTextFields.viewWithTag(textField.tag + 1) as? UITextField
       {
          nextField.becomeFirstResponder()
       }

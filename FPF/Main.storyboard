@@ -1089,7 +1089,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-6S-wO6">
-                                                <rect key="frame" x="20" y="369" width="335" height="568"/>
+                                                <rect key="frame" x="20" y="369" width="335" height="412"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wqc-QI-gXg">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="52"/>
@@ -1295,7 +1295,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-60" translatesAutoresizingMaskIntoConstraints="NO" id="7Uy-iT-f7Q">
-                                                        <rect key="frame" x="0.0" y="360" width="335" height="208"/>
+                                                        <rect key="frame" x="0.0" y="360" width="335" height="52"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="hNy-F1-8y0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="52"/>
@@ -1331,7 +1331,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="65F-5O-zk2">
-                                                                <rect key="frame" x="0.0" y="-8" width="335" height="216"/>
+                                                                <rect key="frame" x="0.0" y="52" width="335" height="0.0"/>
                                                                 <date key="date" timeIntervalSinceReferenceDate="528397553.996185">
                                                                     <!--2017-09-29 17:05:53 +0000-->
                                                                 </date>
@@ -1471,6 +1471,7 @@
                         <outlet property="passwordViewHeight" destination="4gz-xK-Ync" id="0rO-Ge-VAD"/>
                         <outlet property="scrollView" destination="lLR-mO-uql" id="xkt-je-uy9"/>
                         <outlet property="topView" destination="yGh-1X-LD6" id="3J8-g3-sPr"/>
+                        <outlet property="viewHoldingTextFields" destination="xay-Vk-GZX" id="wNA-Pd-Bct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyU-Yo-DPJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

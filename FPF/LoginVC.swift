@@ -46,8 +46,10 @@ class LoginVC: ParentViewController, segueToSignUpVCDelegate {
         mobileNumberTxtField.delegate = self
         passwordTxtField.delegate = self
         KeyboardAvoiding.avoidingView = loginView
+        
     }
-
+    
+    
     //MARK: - ibactions
     @IBAction func LoginBtnPressed(_ sender: Any) {
         

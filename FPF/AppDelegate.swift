@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //TODO: 
     // course sessions adjust for smaller screens ,smaller than iPhone 7
     // check for internet connections and show warnning in login and inside the app
+    //change password endless spinning
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
