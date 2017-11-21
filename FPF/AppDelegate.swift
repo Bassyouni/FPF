@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     //TODO: 
-    // course sessions adjust for smaller screens ,smaller than iPhone 7
     // check for internet connections and show warnning in login and inside the app
     //change password endless spinning
 

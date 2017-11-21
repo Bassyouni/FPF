@@ -11,7 +11,7 @@ import UIKit
 class sessionsTableTableViewCell: UITableViewCell {
     @IBOutlet weak var freezeModeView: UIView!
 
-    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftSessionsLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -99,9 +99,9 @@ extension sessionsTableTableViewCell: UICollectionViewDelegate , UICollectionVie
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sessionsTableCollectionViewCell", for: indexPath) as? sessionsTableCollectionViewCell
         {
-            let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
-            collectionViewHeightConstraint.constant = height
-            self.setNeedsLayout()
+//            let height: CGFloat = collectionView.collectionViewLayout.collectionViewContentSize.height
+//            collectionViewHeightConstraint.constant = height
+//            self.setNeedsLayout()
 
             cell.configureCell(session: seassionsArray[indexPath.row])
             return cell

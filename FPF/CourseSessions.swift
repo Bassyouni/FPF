@@ -244,13 +244,23 @@ extension CourseSessions: UITableViewDelegate , UITableViewDataSource
         }
         else if indexPath.section == 1
         {
+            let padding: CGFloat = 100
+            let collectionItemHeight: CGFloat = 100
+            let collectionItemWidth:CGFloat = 90.0
+            let numberCollectionItemsPerRow = floor(self.view.bounds.size.width / collectionItemWidth)
+            var numberOfRows:CGFloat!
+            
             if type == "8_session"
             {
-                return (424 - 120)
+                numberOfRows = ceil(8 / numberCollectionItemsPerRow)
+                
+                return (numberOfRows * collectionItemHeight) + padding
             }
             else if type == "12_session"
             {
-                return 424 
+                numberOfRows = ceil(12 / numberCollectionItemsPerRow)
+                
+                return (numberOfRows * collectionItemHeight) + padding
             }
             
         }
